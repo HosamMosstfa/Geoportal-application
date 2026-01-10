@@ -1,0 +1,243 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 1,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903618291000043,
+          21.424074208000036
+        ]
+      },
+      "properties": {
+        "OBJECTID": 1,
+        "Name": "n4",
+        "Latitude": 21.423376999999999,
+        "Longitude": 39.903357999999997
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 2,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903752733000033,
+          21.423394094000059
+        ]
+      },
+      "properties": {
+        "OBJECTID": 2,
+        "Name": "n2",
+        "Latitude": 21.42314,
+        "Longitude": 39.903353000000003
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 3,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903145691000077,
+          21.423348730000043
+        ]
+      },
+      "properties": {
+        "OBJECTID": 3,
+        "Name": "n1",
+        "Latitude": 21.42342,
+        "Longitude": 39.903123999999998
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 4,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903323000000057,
+          21.424058000000059
+        ]
+      },
+      "properties": {
+        "OBJECTID": 4,
+        "Name": "S-",
+        "Latitude": 21.424057999999999,
+        "Longitude": 39.903323
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 5,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903475000000071,
+          21.423362000000054
+        ]
+      },
+      "properties": {
+        "OBJECTID": 5,
+        "Name": "S",
+        "Latitude": 21.423362000000001,
+        "Longitude": 39.903475
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 6,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903084532000037,
+          21.424046704000034
+        ]
+      },
+      "properties": {
+        "OBJECTID": 6,
+        "Name": "n3",
+        "Latitude": 21.424056,
+        "Longitude": 39.903162000000002
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 10,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903587499000025,
+          21.423890889000063
+        ]
+      },
+      "properties": {
+        "OBJECTID": 10,
+        "Name": "Samples",
+        "Latitude": null,
+        "Longitude": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 11,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903728675000025,
+          21.423463640000023
+        ]
+      },
+      "properties": {
+        "OBJECTID": 11,
+        "Name": "Samples",
+        "Latitude": null,
+        "Longitude": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 12,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903188138000075,
+          21.423832262000076
+        ]
+      },
+      "properties": {
+        "OBJECTID": 12,
+        "Name": "Samples",
+        "Latitude": null,
+        "Longitude": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 13,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903386083000044,
+          21.423884691000069
+        ]
+      },
+      "properties": {
+        "OBJECTID": 13,
+        "Name": "Samples",
+        "Latitude": null,
+        "Longitude": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 14,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.90344619800004,
+          21.423587835000035
+        ]
+      },
+      "properties": {
+        "OBJECTID": 14,
+        "Name": "Samples",
+        "Latitude": null,
+        "Longitude": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 15,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903116496000052,
+          21.423627499000077
+        ]
+      },
+      "properties": {
+        "OBJECTID": 15,
+        "Name": "Samples",
+        "Latitude": null,
+        "Longitude": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 16,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903135088000056,
+          21.423884691000069
+        ]
+      },
+      "properties": {
+        "OBJECTID": 16,
+        "Name": "Critical",
+        "Latitude": null,
+        "Longitude": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 17,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903475946000071,
+          21.423543834000043
+        ]
+      },
+      "properties": {
+        "OBJECTID": 17,
+        "Name": "Transitional",
+        "Latitude": null,
+        "Longitude": null
+      }
+    }
+  ]
+}
