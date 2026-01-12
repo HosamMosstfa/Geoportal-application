@@ -4,14 +4,12 @@ import LandingPage from "./components/LandingPage/LandingPage";
 
 function App() {
   return (
-    // <Router>
-    //   <Routes>
-    //     <Route path="/" element={<LandingPage />} />
-
-    //     <Route path="/map" element={<MainLayout />} />
-    //   </Routes>
-    // </Router>
-    <MainLayout />
+    <Router>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/map" element={<MainLayout />} />
+      </Routes>
+    </Router>
   );
 }
 
