@@ -40,6 +40,16 @@ const MapView = forwardRef(function MapView({ theme }, ref) {
     boundary: true,
   });
 
+  const [baseMap, setBaseMap] = useState('default');
+
+  const baseMapStyles = {
+    default: "https://demotiles.maplibre.org/style.json",
+    dark: "https://basemaps.cartocdn.com/gl/dark-matter-gl-style/style.json",
+    imagery: "https://api.maptiler.com/maps/satellite/style.json?key=oh2RuUJTGdHt3cFgDcV7", // Replace with actual API key
+  };
+
+  const [stationsData, setStationsData] = useState(null);
+
   const toggleLayer = (layer) => {
     const map = mapRef.current;
     if (!map || !layersVisibility) return;
@@ -55,12 +65,213 @@ const MapView = forwardRef(function MapView({ theme }, ref) {
       map.setLayoutProperty('boundary-outline', 'visibility', visibility ? 'visible' : 'none');
     }
   };
+
+  const changeBaseMap = (newBaseMap) => {
+    setBaseMap(newBaseMap);
+    const map = mapRef.current;
+    if (map) {
+      map.setStyle(baseMapStyles[newBaseMap]);
+      // Re-add layers after style change
+      map.once('style.load', () => {
+        addLayersToMap(map);
+      });
+    }
+  };
+
+  const addLayersToMap = (map) => {
+    // 🔹 Terrain
+    if (!map.getSource('terrain')) {
+      map.addSource("terrain", {
+        type: "raster-dem",
+        tiles: [
+          "https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png"
+        ],
+        tileSize: 256,
+        encoding: "terrarium",
+        maxzoom: 11
+      });
+    }
+
+    if (!map.getLayer('hillshade')) {
+      map.setTerrain({
+        source: "terrain",
+        exaggeration: 1.5
+      });
+
+      map.addLayer({
+        id: "hillshade",
+        type: "hillshade",
+        source: "terrain"
+      });
+    }
+
+    // 🔹 Polygon GeoJSON
+    if (!map.getSource('my-geojson')) {
+      map.addSource("my-geojson", {
+        type: "geojson",
+        data: "/data/layer.geojson"
+      });
+
+      map.addLayer({
+        id: "geojson-fill",
+        type: "fill",
+        source: "my-geojson",
+        paint: {
+          "fill-color": "#000000",
+          "fill-opacity": 0
+        }
+      });
+
+      map.addLayer({
+        id: "geojson-outline",
+        type: "line",
+        source: "my-geojson",
+        paint: {
+          "line-color": "#000000",
+          "line-width": 6
+        }
+      });
+    }
+
+    // Add stations if data is loaded
+    if (stationsData && !map.getSource('stations')) {
+      map.addSource("stations", { type: "geojson", data: stationsData });
+
+      map.addLayer({
+        id: "stations-layer",
+        type: "circle",
+        source: "stations",
+        paint: {
+          // radius by symbol
+          "circle-radius": [
+            "match",
+            ["get", "_sym"],
+            "S",
+            18,
+            "n",
+            9,
+            "Samples",
+            14,
+            "Critical",
+            14,
+            "Transitional",
+            15,
+            12,
+          ],
+          // color by symbol
+          "circle-color": [
+            "match",
+            ["get", "_sym"],
+            "S",
+            "#007bff",
+            "n",
+            "#ffd700",
+            "Samples",
+            "#ff0000",
+            "Critical",
+            "#888888",
+            "Transitional",
+            "#00aa00",
+            "#ff0000",
+          ],
+          "circle-stroke-color": "#000000",
+          "circle-stroke-width": 1,
+        },
+      });
+
+      // Add labels to stations
+      map.addLayer({
+        id: "stations-labels",
+        type: "symbol",
+        source: "stations",
+        layout: {
+          "text-field": ["get", "Name"],
+          "text-size": 12,
+          "text-offset": [0, 1.5],
+          "text-anchor": "top"
+        },
+        paint: {
+          "text-color": "#000000",
+          "text-halo-color": "#ffffff",
+          "text-halo-width": 1
+        }
+      });
+    }
+
+    // Add other layers
+    if (!map.getSource('area')) {
+      map.addSource("area", {
+        type: "geojson",
+        data: "/data/area.geojson"
+      });
+      map.addLayer({
+        id: "area-fill",
+        type: "fill",
+        source: "area",
+        paint: {
+          "fill-color": "#ff0000",
+          "fill-opacity": 0.3
+        }
+      });
+      map.addLayer({
+        id: "area-outline",
+        type: "line",
+        source: "area",
+        paint: {
+          "line-color": "#ff0000",
+          "line-width": 2
+        }
+      });
+    }
+
+    if (!map.getSource('roads')) {
+      map.addSource("roads", {
+        type: "geojson",
+        data: "/data/roads.geojson"
+      });
+      map.addLayer({
+        id: "roads-line",
+        type: "line",
+        source: "roads",
+        paint: {
+          "line-color": "#0000ff",
+          "line-width": 3
+        }
+      });
+    }
+
+    if (!map.getSource('boundary')) {
+      map.addSource("boundary", {
+        type: "geojson",
+        data: "/data/boundary.geojson"
+      });
+      map.addLayer({
+        id: "boundary-fill",
+        type: "fill",
+        source: "boundary",
+        paint: {
+          "fill-color": "#ffd000ff",
+          "fill-opacity": 0.2
+        }
+      });
+      map.addLayer({
+        id: "boundary-outline",
+        type: "line",
+        source: "boundary",
+        paint: {
+          "line-color": "#ff9100ff",
+          "line-width": 2
+        }
+      });
+    }
+  };
+
 const [legendOpen, setLegendOpen] = useState(true);
 
   useEffect(() => {
     const map = new maplibregl.Map({
       container: mapContainer.current,
-      style: "https://demotiles.maplibre.org/style.json",
+      style: baseMapStyles[baseMap],
       center: [39.9422281607, 21.4310162095],
       zoom: 12,
       pitch: 75,
@@ -122,12 +333,13 @@ const [legendOpen, setLegendOpen] = useState(true);
       fetch("/data/stations.geojson")
         .then((r) => r.json())
         .then((data) => {
-          // derive simple symbol category based on Name
+          // derive simple symbol category based on Type and Name
           let sampleCounter = 1;
           data.features.forEach((f) => {
+            const type = f.properties && String(f.properties.Type || "");
             const name = f.properties && String(f.properties.Name || "");
             let sym = "other";
-            if (name === "Samples") {
+            if (type === "Sample") {
               sym = "Samples";
               // assign sequential sample index so we can map to sample1.jpeg, sample2.jpeg, ...
               f.properties = { ...f.properties, _sym: sym, _sampleIndex: sampleCounter };
@@ -142,6 +354,7 @@ const [legendOpen, setLegendOpen] = useState(true);
           });
 
           stationsDataRef.current = data;
+          setStationsData(data);
 
           // Update station maps count
           const criticalCount = data.features.filter(f => f.properties && f.properties._sym === 'Critical').length;
@@ -194,57 +407,6 @@ const [legendOpen, setLegendOpen] = useState(true);
               "circle-stroke-width": 1,
             },
           });
-
-          // add a dashed connection between S points and a label 's1'
-          try {
-            const sFeatures = data.features.filter((f) => f.properties && f.properties._sym === "S" && f.geometry && f.geometry.coordinates);
-            if (sFeatures.length >= 2) {
-              const lineCoords = sFeatures.map((f) => f.geometry.coordinates);
-              const lineFeature = {
-                type: "Feature",
-                geometry: { type: "LineString", coordinates: lineCoords },
-                properties: { name: "s1" },
-              };
-
-              map.addSource("s-connections", {
-                type: "geojson",
-                data: { type: "FeatureCollection", features: [lineFeature] },
-              });
-
-              map.addLayer({
-                id: "s-connections-line",
-                type: "line",
-                source: "s-connections",
-                layout: { "line-join": "round", "line-cap": "round" },
-                paint: { "line-color": "#000000", "line-width": 2, "line-dasharray": [4, 4] },
-              });
-
-              // label at midpoint of first segment
-              const a = lineCoords[0];
-              const b = lineCoords[1];
-              const mid = [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2];
-              const labelFeature = {
-                type: "Feature",
-                geometry: { type: "Point", coordinates: mid },
-                properties: { label: "s1" },
-              };
-              map.addSource("s-connections-label", { type: "geojson", data: { type: "FeatureCollection", features: [labelFeature] } });
-              map.addLayer({
-                id: "s-connections-label-layer",
-                type: "symbol",
-                source: "s-connections-label",
-                layout: {
-                  "text-field": ["get", "label"],
-                  "text-size": 12,
-                  "text-offset": [0, 0.6],
-                },
-                paint: { "text-color": "#000000" },
-              });
-            }
-          } catch (e) {
-            // ignore connection errors
-            console.warn(e);
-          }
 
           // Add new layers
           map.addSource("area", {
@@ -561,7 +723,23 @@ new maplibregl.Popup({
 
     <hr style={{ margin: '8px 0' }} />
 
-    <div style={{ fontWeight: 600, marginBottom: 6 }}>Layers</div>
+    <div style={{ fontWeight: 600, marginBottom: 6 }}>Base Map</div>
+    <select
+      value={baseMap}
+      onChange={(e) => changeBaseMap(e.target.value)}
+      style={{
+        width: '100%',
+        padding: '4px',
+        borderRadius: '4px',
+        backgroundColor: theme === 'dark' ? '#333' : '#fff',
+        color: theme === 'dark' ? '#fff' : '#000',
+        border: '1px solid #ccc'
+      }}
+    >
+      <option value="default">Default</option>
+      <option value="dark">Dark</option>
+      <option value="imagery">Imagery</option>
+    </select>
 
     {[
       { key: 'area', label: 'Area' },

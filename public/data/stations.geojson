@@ -7,15 +7,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          39.903618291000043,
-          21.424074208000036
+          39.903557000000035,
+          21.422649000000035
         ]
       },
       "properties": {
         "OBJECTID": 1,
-        "Name": "n4",
-        "Latitude": 21.423376999999999,
-        "Longitude": 39.903357999999997
+        "Station": "ST1",
+        "Name": "ST1",
+        "Latitude": 21.422649,
+        "Longitude": 39.903556999999999,
+        "Type": "Point"
       }
     },
     {
@@ -24,15 +26,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          39.903752733000033,
-          21.423394094000059
+          39.903770000000065,
+          21.422522000000072
         ]
       },
       "properties": {
         "OBJECTID": 2,
-        "Name": "n2",
-        "Latitude": 21.42314,
-        "Longitude": 39.903353000000003
+        "Station": "ST1",
+        "Name": "N3",
+        "Latitude": 21.422522000000001,
+        "Longitude": 39.903770000000002,
+        "Type": "Point"
       }
     },
     {
@@ -41,15 +45,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          39.903145691000077,
-          21.423348730000043
+          39.903472000000079,
+          21.420567000000062
         ]
       },
       "properties": {
         "OBJECTID": 3,
-        "Name": "n1",
-        "Latitude": 21.42342,
-        "Longitude": 39.903123999999998
+        "Station": "ST1",
+        "Name": "N3''",
+        "Latitude": 21.420566999999998,
+        "Longitude": 39.903472000000001,
+        "Type": "Point"
       }
     },
     {
@@ -58,15 +64,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          39.903323000000057,
-          21.424058000000059
+          39.90336700000006,
+          21.420722000000069
         ]
       },
       "properties": {
         "OBJECTID": 4,
-        "Name": "S-",
-        "Latitude": 21.424057999999999,
-        "Longitude": 39.903323
+        "Station": "ST1",
+        "Name": "ST1''",
+        "Latitude": 21.420722000000001,
+        "Longitude": 39.903367000000003,
+        "Type": "Point"
       }
     },
     {
@@ -75,15 +83,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          39.903475000000071,
-          21.423362000000054
+          39.903203000000076,
+          21.420717000000025
         ]
       },
       "properties": {
         "OBJECTID": 5,
-        "Name": "S",
-        "Latitude": 21.423362000000001,
-        "Longitude": 39.903475
+        "Station": "ST1",
+        "Name": "N1",
+        "Latitude": 21.420717,
+        "Longitude": 39.903202999999998,
+        "Type": "Point"
       }
     },
     {
@@ -92,15 +102,74 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          39.903084532000037,
-          21.424046704000034
+          39.903405000000078,
+          21.422732000000053
         ]
       },
       "properties": {
         "OBJECTID": 6,
-        "Name": "n3",
-        "Latitude": 21.424056,
-        "Longitude": 39.903162000000002
+        "Station": "ST1",
+        "Name": "N1''",
+        "Latitude": 21.422732,
+        "Longitude": 39.903404999999999,
+        "Type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 7,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903564800000026,
+          21.422505700000045
+        ]
+      },
+      "properties": {
+        "OBJECTID": 7,
+        "Station": "ST1",
+        "Name": "ST-1-A1",
+        "Latitude": 21.422505699999999,
+        "Longitude": 39.903564799999998,
+        "Type": "Sample"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 8,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903750000000059,
+          21.422138890000042
+        ]
+      },
+      "properties": {
+        "OBJECTID": 8,
+        "Station": "ST1",
+        "Name": "ST-1-A2",
+        "Latitude": 21.422138889999999,
+        "Longitude": 39.903750000000002,
+        "Type": "Sample"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 9,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903611100000035,
+          21.422138890000042
+        ]
+      },
+      "properties": {
+        "OBJECTID": 9,
+        "Station": "ST1",
+        "Name": "ST-1-A3",
+        "Latitude": 21.422138889999999,
+        "Longitude": 39.903611099999999,
+        "Type": "Sample"
       }
     },
     {
@@ -109,15 +178,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          39.903587499000025,
-          21.423890889000063
+          39.903602700000079,
+          21.421892400000047
         ]
       },
       "properties": {
         "OBJECTID": 10,
-        "Name": "Samples",
-        "Latitude": null,
-        "Longitude": null
+        "Station": "ST1",
+        "Name": "ST-1-A4",
+        "Latitude": 21.421892400000001,
+        "Longitude": 39.9036027,
+        "Type": "Sample"
       }
     },
     {
@@ -126,15 +197,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          39.903728675000025,
-          21.423463640000023
+          39.903624800000046,
+          21.421812200000033
         ]
       },
       "properties": {
         "OBJECTID": 11,
-        "Name": "Samples",
-        "Latitude": null,
-        "Longitude": null
+        "Station": "ST1",
+        "Name": "ST-1-A5",
+        "Latitude": 21.421812200000002,
+        "Longitude": 39.903624800000003,
+        "Type": "Sample"
       }
     },
     {
@@ -143,15 +216,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          39.903188138000075,
-          21.423832262000076
+          39.903740800000037,
+          21.421800900000051
         ]
       },
       "properties": {
         "OBJECTID": 12,
-        "Name": "Samples",
-        "Latitude": null,
-        "Longitude": null
+        "Station": "ST1",
+        "Name": "ST-1-A6",
+        "Latitude": 21.421800900000001,
+        "Longitude": 39.903740800000001,
+        "Type": "Sample"
       }
     },
     {
@@ -160,15 +235,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          39.903386083000044,
-          21.423884691000069
+          39.90336700000006,
+          21.420723000000066
         ]
       },
       "properties": {
         "OBJECTID": 13,
-        "Name": "Samples",
-        "Latitude": null,
-        "Longitude": null
+        "Station": "ST2",
+        "Name": "ST2_Start",
+        "Latitude": 21.420722999999999,
+        "Longitude": 39.903367000000003,
+        "Type": "Point"
       }
     },
     {
@@ -177,15 +254,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          39.90344619800004,
-          21.423587835000035
+          39.903203000000076,
+          21.420717000000025
         ]
       },
       "properties": {
         "OBJECTID": 14,
-        "Name": "Samples",
-        "Latitude": null,
-        "Longitude": null
+        "Station": "ST2",
+        "Name": "N1",
+        "Latitude": 21.420717,
+        "Longitude": 39.903202999999998,
+        "Type": "Point"
       }
     },
     {
@@ -194,15 +273,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          39.903116496000052,
-          21.423627499000077
+          39.903107000000034,
+          21.419088000000045
         ]
       },
       "properties": {
         "OBJECTID": 15,
-        "Name": "Samples",
-        "Latitude": null,
-        "Longitude": null
+        "Station": "ST2",
+        "Name": "N2",
+        "Latitude": 21.419087999999999,
+        "Longitude": 39.903106999999999,
+        "Type": "Point"
       }
     },
     {
@@ -211,15 +292,17 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          39.903135088000056,
-          21.423884691000069
+          39.903472000000079,
+          21.420567000000062
         ]
       },
       "properties": {
         "OBJECTID": 16,
-        "Name": "Critical",
-        "Latitude": null,
-        "Longitude": null
+        "Station": "ST2",
+        "Name": "N3",
+        "Latitude": 21.420566999999998,
+        "Longitude": 39.903472000000001,
+        "Type": "Point"
       }
     },
     {
@@ -228,15 +311,340 @@
       "geometry": {
         "type": "Point",
         "coordinates": [
-          39.903475946000071,
-          21.423543834000043
+          39.903415000000052,
+          21.419092000000035
         ]
       },
       "properties": {
         "OBJECTID": 17,
-        "Name": "Transitional",
-        "Latitude": null,
-        "Longitude": null
+        "Station": "ST2",
+        "Name": "N4",
+        "Latitude": 21.419091999999999,
+        "Longitude": 39.903415000000003,
+        "Type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 18,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903292000000079,
+          21.419102000000066
+        ]
+      },
+      "properties": {
+        "OBJECTID": 18,
+        "Station": "ST2",
+        "Name": "ST2_End",
+        "Latitude": 21.419101999999999,
+        "Longitude": 39.903292,
+        "Type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 19,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903444444000058,
+          21.420888889000025
+        ]
+      },
+      "properties": {
+        "OBJECTID": 19,
+        "Station": "ST2",
+        "Name": "ST-2-A2",
+        "Latitude": 21.420888888888889,
+        "Longitude": 39.903444444444446,
+        "Type": "Sample"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 20,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903694444000052,
+          21.421000000000049
+        ]
+      },
+      "properties": {
+        "OBJECTID": 20,
+        "Station": "ST2",
+        "Name": "ST-2-A4",
+        "Latitude": 21.421000000000003,
+        "Longitude": 39.90369444444444,
+        "Type": "Sample"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 21,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903444444000058,
+          21.42011111100004
+        ]
+      },
+      "properties": {
+        "OBJECTID": 21,
+        "Station": "ST2",
+        "Name": "ST-2-A5",
+        "Latitude": 21.420111111111112,
+        "Longitude": 39.903444444444446,
+        "Type": "Sample"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 22,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903083333000041,
+          21.419666667000058
+        ]
+      },
+      "properties": {
+        "OBJECTID": 22,
+        "Station": "ST2",
+        "Name": "ST-2-A6",
+        "Latitude": 21.419666666666668,
+        "Longitude": 39.903083333333335,
+        "Type": "Sample"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 23,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903309000000036,
+          21.424247000000037
+        ]
+      },
+      "properties": {
+        "OBJECTID": 23,
+        "Station": "ST3",
+        "Name": "ST3_Start",
+        "Latitude": 21.424247000000001,
+        "Longitude": 39.903309,
+        "Type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 24,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903433000000064,
+          21.424299000000076
+        ]
+      },
+      "properties": {
+        "OBJECTID": 24,
+        "Station": "ST3",
+        "Name": "N1",
+        "Latitude": 21.424299000000001,
+        "Longitude": 39.903433,
+        "Type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 25,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903323000000057,
+          21.424275000000023
+        ]
+      },
+      "properties": {
+        "OBJECTID": 25,
+        "Station": "ST3",
+        "Name": "N2",
+        "Latitude": 21.424275000000002,
+        "Longitude": 39.903323,
+        "Type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 26,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903214000000048,
+          21.424635000000023
+        ]
+      },
+      "properties": {
+        "OBJECTID": 26,
+        "Station": "ST3",
+        "Name": "N3",
+        "Latitude": 21.424634999999999,
+        "Longitude": 39.903213999999998,
+        "Type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 27,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.90355500000004,
+          21.424625000000049
+        ]
+      },
+      "properties": {
+        "OBJECTID": 27,
+        "Station": "ST3",
+        "Name": "N4",
+        "Latitude": 21.424624999999999,
+        "Longitude": 39.903554999999997,
+        "Type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 28,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903292000000079,
+          21.424670000000049
+        ]
+      },
+      "properties": {
+        "OBJECTID": 28,
+        "Station": "ST3",
+        "Name": "ST3_End",
+        "Latitude": 21.424669999999999,
+        "Longitude": 39.903292,
+        "Type": "Point"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 29,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.90356520000006,
+          21.424352700000043
+        ]
+      },
+      "properties": {
+        "OBJECTID": 29,
+        "Station": "ST3",
+        "Name": "ST-3-A1",
+        "Latitude": 21.4243527,
+        "Longitude": 39.903565200000003,
+        "Type": "Sample"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 30,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903414100000077,
+          21.42442740000007
+        ]
+      },
+      "properties": {
+        "OBJECTID": 30,
+        "Station": "ST3",
+        "Name": "ST-3-A2",
+        "Latitude": 21.424427399999999,
+        "Longitude": 39.903414099999999,
+        "Type": "Sample"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 31,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903390400000035,
+          21.424401400000022
+        ]
+      },
+      "properties": {
+        "OBJECTID": 31,
+        "Station": "ST3",
+        "Name": "ST-3-A3",
+        "Latitude": 21.424401400000001,
+        "Longitude": 39.903390399999999,
+        "Type": "Sample"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 32,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903288800000041,
+          21.424194300000067
+        ]
+      },
+      "properties": {
+        "OBJECTID": 32,
+        "Station": "ST3",
+        "Name": "ST-3-A4",
+        "Latitude": 21.4241943,
+        "Longitude": 39.903288799999999,
+        "Type": "Sample"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 33,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903147600000068,
+          21.424458800000025
+        ]
+      },
+      "properties": {
+        "OBJECTID": 33,
+        "Station": "ST3",
+        "Name": "ST-3-A5",
+        "Latitude": 21.4244588,
+        "Longitude": 39.903147599999997,
+        "Type": "Sample"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 34,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903226700000062,
+          21.424374700000044
+        ]
+      },
+      "properties": {
+        "OBJECTID": 34,
+        "Station": "ST3",
+        "Name": "ST-3-A6",
+        "Latitude": 21.424374700000001,
+        "Longitude": 39.903226699999998,
+        "Type": "Sample"
       }
     }
   ]
