@@ -1,0 +1,39 @@
+@font-face {
+  font-family: "Alexandria";
+  src: url("/src/assets/FontAndColor/Alexandria-VariableFont_wght.ttf")
+    format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+}
+
+:root {
+  --main-gold: #b69767;
+  --dark-bg: #231f20;
+  --card-bg: #231f20;
+  --text-grey: #b0b0b0;
+  --primary-teal: #239b87;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: "Alexandria", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  color: white;
+  font-family: "Alexandria", "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 16px;
+}
+
+.golden-contour-bg {
+  min-height: 100vh;
+  width: 100%;
+  background-color: var(--dark-bg);
+  background-image: url("/src/assets/BackgroundAndArt/Background.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center;
+}

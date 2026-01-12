@@ -1,0 +1,125 @@
+/* --- 5. (Slider) --- */
+.section-header-text {
+  color: var(--main-gold);
+  margin-bottom: 40px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  position: relative;
+  display: inline-block;
+  letter-spacing: 1px;
+}
+
+.section-header-text::after {
+  content: "";
+  display: block;
+  width: 40%;
+  height: 2px;
+  background-color: var(--main-gold);
+  margin: 12px auto 0;
+}
+
+.slider-container-wrapper {
+  position: relative;
+  max-width: 100%;
+  padding: 0 60px;
+}
+
+.field-gallery.slider {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  gap: 25px;
+  padding: 20px 10px;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.field-gallery.slider::-webkit-scrollbar {
+  display: none;
+}
+
+.slider-item {
+  flex: 0 0 auto;
+  width: 300px;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: var(--main-gold);
+  color: #000;
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 1.2rem;
+  cursor: pointer;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+  transition: background 0.3s, transform 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.slider-btn:hover {
+  background-color: #e6cfa8;
+  transform: translateY(-50%) scale(1.1);
+}
+
+.prev-btn {
+  right: 10px;
+}
+
+.next-btn {
+  left: 10px;
+}
+
+.gallery-item {
+  position: relative;
+  width: 300px;
+  height: 420px;
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--main-gold);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.gallery-item:hover {
+  transform: translateY(-10px) scale(1.02);
+  box-shadow: 0 10px 20px rgba(198, 168, 124, 0.3);
+}
+
+.gallery-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.gallery-item:hover .gallery-img {
+  transform: scale(1.1);
+}
+
+.gallery-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+  padding: 30px 20px 20px;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: right;
+  transform: translateY(100px);
+  transition: transform 0.3s;
+}
+
+.gallery-item:hover .gallery-overlay {
+  transform: translateY(0);
+}
