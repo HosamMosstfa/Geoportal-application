@@ -19,7 +19,7 @@ const ContactFooter = () => {
 
             <div className="map-wrapper">
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3722.171165825712!2d39.78871856692515!3d21.389458105791658!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c21b0019ab5d99%3A0xb0394cb63ec191ca!2z2K3ZiiDYp9mE2YXZhNmDINmB2YfYrw!5e0!3m2!1sar!2seg!4v1768155386308!5m2!1sar!2seg"
+                src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3715.1106277880604!2d39.940147025919394!3d21.38554828035453!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMjHCsDIzJzA4LjAiTiAzOcKwNTYnMTUuMyJF!5e0!3m2!1sar!2seg!4v1768243161574!5m2!1sar!2seg"
                 width="100%"
                 height="260"
                 style={{ border: 0 }}
