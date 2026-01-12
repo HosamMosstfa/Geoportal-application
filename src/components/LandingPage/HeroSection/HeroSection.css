@@ -1,10 +1,11 @@
-/* --- 2. Hero Section --- */
 .hero-section {
   position: relative;
   width: 100%;
   height: 500px;
   background-image: url("/src/assets/Cover/Cover.png");
   background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -13,7 +14,7 @@
 }
 
 .vision-container {
-  width: auto;
+  width: 100%;
   display: flex;
   justify-content: flex-start;
   margin-right: -2px;
@@ -21,7 +22,7 @@
 }
 
 .vision-box {
-  background-color: var(--main-gold);
+  background-color: var(--main-gold, #d4af37);
   color: #000;
   height: 500px;
   width: 320px;
@@ -29,12 +30,19 @@
   border-bottom-left-radius: 500px 100%;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
-  padding: 180px 60px 60px 120px;
+  padding: 0 40px 0 80px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
   justify-content: center;
   position: relative;
   box-shadow: -15px 0 40px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: transform 0.3s ease, width 0.3s ease;
+}
+
+.vision-box:hover {
+  transform: translateX(-10px);
 }
 
 .vision-title {
@@ -44,13 +52,72 @@
   margin: 0;
   font-family: "Alexandria", sans-serif;
   text-transform: uppercase;
+  text-align: right;
 }
 
 .arrow-icon {
   font-size: 2rem;
-  margin-left: 20px;
+  margin-right: 20px;
   display: inline-block;
-  transform: rotate(180deg);
   color: #000;
   font-weight: bold;
+}
+
+@media (max-width: 1024px) {
+  .vision-box {
+    width: 280px;
+    padding: 0 30px 0 60px;
+  }
+
+  .vision-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-section {
+    height: 100vh;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .vision-container {
+    justify-content: center;
+    margin-right: 0;
+    margin-bottom: 0;
+    width: 100%;
+    height: 60%;
+  }
+
+  .vision-box {
+    width: 100%;
+    height: 100%;
+    padding: 40px;
+    border-radius: 0;
+    background-color: #b0946b;
+    clip-path: path(
+      "M 0 100 C 0 20, 100 0, 300 0 L 800 0 L 800 600 C 600 600, 200 550, 0 450 Z"
+    );
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    box-shadow: none;
+  }
+
+  .vision-box:hover {
+    transform: none;
+  }
+
+  .vision-title {
+    font-size: 4rem;
+    text-align: right;
+    color: #1f1f1f;
+    margin-left: 30px;
+  }z
+
+  .arrow-icon {
+    margin-right: 0;
+    font-size: 3rem;
+    color: #1f1f1f;
+  }
 }

@@ -1,29 +1,41 @@
-import React from "react";
+import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Header.css";
+
 const Header = () => {
+  const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const toggleMenu = () => {
+    setMenuOpen(!menuOpen);
+  };
+
   return (
-    <div
-      style={{
-        backgroundImage: "url('/src/assets/HeaderAndLogo/Header.png')",
-        backgroundSize: "cover",
-        backgroundColor: "black",
-      }}
-    >
-      {/* Logos Section */}
-      <div style={{ display: "flex", padding: "30px 20px" }}>
+    <div className="header-wrapper">
+      <div className="logos-section">
         <img
           src="/src/assets/HeaderAndLogo/Logo Dark mode.png"
           alt="Vision Logo"
-          style={{ height: "80px" }}
+          className="header-logo"
+          onClick={() => navigate("/")}
         />
       </div>
 
-      {/* Navbar */}
       <header className="top-header">
-        <nav className="nav-links">
-          <a href="#">الرئيسية</a>
-          <a href="#">لوحة التحكم</a>
-          <a href="#">تواصل معنا</a>
+        <button className="menu-toggle" onClick={toggleMenu}>
+          {menuOpen ? "✕" : "☰"}
+        </button>
+
+        <nav className={`nav-links ${menuOpen ? "active" : ""}`}>
+          <a href="/" onClick={() => setMenuOpen(false)}>
+            الرئيسية
+          </a>
+          <a href="/map" onClick={() => setMenuOpen(false)}>
+            لوحة التحكم
+          </a>
+          <a href="/contact" onClick={() => setMenuOpen(false)}>
+            تواصل معنا
+          </a>
         </nav>
       </header>
     </div>
