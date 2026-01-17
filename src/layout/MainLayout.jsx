@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import Navbar from "../components/Navbar";
 import MapView from "../components/MapView";
@@ -11,8 +11,12 @@ function MainLayout() {
   const [showLeft] = useState(true);
   const [showRight] = useState(true);
   const mapRef = useRef(null);
-const [theme, setTheme] = useState("dark");
+  const [theme, setTheme] = useState("dark");
 
+  // Apply theme to document for CSS variables
+  useEffect(() => {
+    document.documentElement.setAttribute('data-theme', theme);
+  }, [theme]);
 
   function toggleTheme() {
     setTheme((t) => (t === "light" ? "dark" : "light"));
@@ -48,10 +52,10 @@ const [theme, setTheme] = useState("dark");
               left: 0,
               width: 260,
               height: "100%",
-              background: theme === "light" ? "linear-gradient(180deg,#ffffff,#f7f9fb)" : "linear-gradient(180deg, rgba(20,25,30,0.95), rgba(10,12,15,0.95))",
+              background: "var(--bg-sidebar)",
               borderRight: "none",
               borderRadius: 0,
-              boxShadow: theme === "light" ? "inset -6px 0 12px rgba(255,255,255,0.6)" : "inset -6px 0 12px rgba(0,0,0,0.6)",
+              boxShadow: "var(--shadow-sidebar)",
               zIndex: 20,
               overflow: 'hidden'
             }}
@@ -69,10 +73,10 @@ const [theme, setTheme] = useState("dark");
               right: 0,
               width: 260,
               height: "100%",
-              background: theme === "light" ? "linear-gradient(180deg,#ffffff,#f7f9fb)" : "linear-gradient(180deg, rgba(20,25,30,0.95), rgba(10,12,15,0.95))",
+              background: "var(--bg-sidebar)",
               borderLeft: "none",
               borderRadius: 0,
-              boxShadow: theme === "light" ? "inset 6px 0 12px rgba(255,255,255,0.6)" : "inset 6px 0 12px rgba(0,0,0,0.6)",
+              boxShadow: "var(--shadow-sidebar)",
               zIndex: 20,
               overflow: 'hidden'
             }}

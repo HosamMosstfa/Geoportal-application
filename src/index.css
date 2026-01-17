@@ -1,6 +1,61 @@
+/* ==================== Theme Variables ==================== */
+:root {
+  /* Light Theme (default) */
+  --bg-primary: #f5f5f5;
+  --bg-secondary: #f5f5f5;
+  --bg-card: #ffffff;
+  --bg-card-gradient: #f5f5f5;
+  --bg-input: #ffffff;
+  --bg-sidebar: #f5f5f5;
+  
+  --text-primary: #111111;
+  --text-secondary: #555555;
+  --text-muted: #888888;
+  
+  --border-color: #dcdcdc;
+  --border-light: #eeeeee;
+  
+  --shadow-card: 0 1px 4px rgba(0,0,0,0.08);
+  --shadow-sidebar: none;
+  
+  --chart-grid: #cccccc;
+  --chart-bar: #8884d8;
+  --chart-line: #8B4513;
+}
+
+[data-theme="dark"] {
+  /* Dark Theme */
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #1a1a1a;
+  --bg-card: #1a1a1a;
+  --bg-card-gradient: #1a1a1a;
+  --bg-input: #252525;
+  --bg-sidebar: #1a1a1a;
+  
+  --text-primary: #eaeaea;
+  --text-secondary: #dddddd;
+  --text-muted: #aaaaaa;
+  
+  --border-color: rgba(255,255,255,0.1);
+  --border-light: rgba(255,255,255,0.06);
+  
+  --shadow-card: 0 1px 8px rgba(0,0,0,0.35);
+  --shadow-sidebar: none;
+  
+  --chart-grid: #444444;
+  --chart-bar: #8884d8;
+  --chart-line: #8B4513;
+}
+
+/* ==================== Base Styles ==================== */
 html, body, #root {
   height: 100%;
   margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 14px;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s, color 0.3s;
 }
 .navbar {
   position: relative;

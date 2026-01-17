@@ -1,19 +1,27 @@
 import React from "react";
 import "./ContactFooter.css";
 
+// imports الصح للصور
+import footerLogo from "../../../assets/Footer/Logo.png";
+import icon1 from "../../../assets/Footer/Icon (1).png";
+import icon2 from "../../../assets/Footer/Icon (2).png";
+import icon3 from "../../../assets/Footer/Icon (3).png";
+import icon4 from "../../../assets/Footer/Icon (4).png";
+
 const ContactFooter = () => {
   return (
     <div className="footer-wrapper" dir="rtl">
       <div className="contact-dark-section">
         <div className="contact-header-title">تواصل معنا</div>
+
         <div className="contact-container">
           <div className="contact-info-side">
             <div className="address-block">
               <span className="location-icon">📍</span>
               <p>
-                مكة المكرمة - حي الملك فهد - شارع الأمير ناصر بن عبدالعزيز آل
-                سعود - رقم المبنى 2861 - الرقم الفرعي 9761 - الرمز البريدي 24353
-                - الدور السادس - مكتب رقم 601
+                مكة المكرمة - حي الملك فهد - شارع الأمير ناصر بن عبدالعزيز آل سعود
+                - رقم المبنى 2861 - الرقم الفرعي 9761 - الرمز البريدي 24353 - الدور
+                السادس - مكتب رقم 601
               </p>
             </div>
 
@@ -27,7 +35,7 @@ const ContactFooter = () => {
                 loading="lazy"
                 referrerPolicy="no-referrer-when-downgrade"
                 title="Google Map"
-              ></iframe>
+              />
             </div>
           </div>
 
@@ -43,7 +51,7 @@ const ContactFooter = () => {
                 placeholder="الرسالة"
                 className="footer-textarea"
                 rows="5"
-              ></textarea>
+              />
               <button type="button" className="footer-send-btn">
                 إرسال
               </button>
@@ -57,11 +65,12 @@ const ContactFooter = () => {
           <div className="col-branding">
             <div className="logos-row">
               <img
-                src="/src/assets/Footer/Logo.png"
+                src={footerLogo}
                 alt="Kidana"
                 className="footer-logo"
               />
             </div>
+
             <p className="branding-text">
               تصميم الحلول الفنية المناسبة لتثبيت الصخور في النقاط الحرجة مثل
               الرش الخرساني، المسامير الأرضية، المرابط الصخرية، وإعداد المخططات
@@ -85,19 +94,19 @@ const ContactFooter = () => {
 
           <div className="col-social">
             <a href="#" className="social-item">
-              <img src="/src/assets/Footer/Icon (1).png" alt="Facebook" />
+              <img src={icon1} alt="Facebook" />
               <span>المرصد المكاني</span>
             </a>
             <a href="#" className="social-item">
-              <img src="/src/assets/Footer/Icon (2).png" alt="Twitter" />
+              <img src={icon2} alt="Twitter" />
               <span>المرصد المكاني</span>
             </a>
             <a href="#" className="social-item">
-              <img src="/src/assets/Footer/Icon (3).png" alt="LinkedIn" />
+              <img src={icon3} alt="LinkedIn" />
               <span>المرصد المكاني</span>
             </a>
             <a href="#" className="social-item">
-              <img src="/src/assets/Footer/Icon (4).png" alt="Instagram" />
+              <img src={icon4} alt="Instagram" />
               <span>المرصد المكاني</span>
             </a>
           </div>

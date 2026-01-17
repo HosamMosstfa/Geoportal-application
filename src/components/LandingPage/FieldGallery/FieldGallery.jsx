@@ -1,36 +1,47 @@
 import React, { useRef } from "react";
 import "./FieldGallery.css";
+
+// استيراد الصور صح
+import img1 from "../../../assets/Photos/Photos (1).png";
+import img2 from "../../../assets/Photos/Photos (2).png";
+import img3 from "../../../assets/Photos/Photos (3).png";
+import img4 from "../../../assets/Photos/Photos (4).png";
+import img5 from "../../../assets/Photos/Photos (5).png";
+import img6 from "../../../assets/Photos/Photos (6).png";
+import img7 from "../../../assets/Photos/Photos (7).png";
+import img8 from "../../../assets/Photos/Photos (8).png";
+
 const FieldGallery = () => {
   const fieldImages = [
-    "/src/assets/Photos/Photos (1).png",
-    "/src/assets/Photos/Photos (2).png",
-    "/src/assets/Photos/Photos (3).png",
-    "/src/assets/Photos/Photos (4).png",
-    "/src/assets/Photos/Photos (5).png",
-    "/src/assets/Photos/Photos (6).png",
-    "/src/assets/Photos/Photos (7).png",
-    "/src/assets/Photos/Photos (8).png",
+    img1,
+    img2,
+    img3,
+    img4,
+    img5,
+    img6,
+    img7,
+    img8,
   ];
 
   const sliderRef = useRef(null);
 
   const slide = (direction) => {
     if (sliderRef.current) {
-      const { current } = sliderRef;
+      const current = sliderRef.current;
       const scrollAmount = 320;
       const maxScrollLeft = current.scrollWidth - current.clientWidth;
 
       if (direction === "left") {
-        if (Math.abs(current.scrollLeft) >= maxScrollLeft - 10) {
+        if (current.scrollLeft >= maxScrollLeft - 10) {
           current.scrollTo({ left: 0, behavior: "smooth" });
         } else {
-          current.scrollBy({ left: -scrollAmount, behavior: "smooth" });
+          current.scrollBy({ left: scrollAmount, behavior: "smooth" });
         }
       } else {
-        if (Math.abs(current.scrollLeft) <= 10) {
-          current.scrollTo({ left: -maxScrollLeft, behavior: "smooth" });
+        if (current.scrollLeft <= 10) {
+          current.scrollTo({ left: maxScrollLeft, behavior: "smooth" });
         } else {
-          current.scrollBy({ left: scrollAmount, behavior: "smooth" });
+          current.scrollBy({ left: -scrollAmount, behavior: "smooth" });
         }
       }
     }

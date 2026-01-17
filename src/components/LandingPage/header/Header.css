@@ -1,4 +1,23 @@
-/* --- 1. Top Header --- */
+rapper {
+
+  background-size: cover;
+  background-position: center;
+  background-color: black;
+  width: 100%;
+  
+}
+
+.logos-section {
+  display: flex;
+  padding: 30px 5%;
+  align-items: center;
+}
+ 
+
+.header-logo {
+  height: 80px;
+}
+
 .top-header {
   width: 100%;
   background-color: var(--primary-teal);

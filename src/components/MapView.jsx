@@ -1,46 +1,23 @@
 import { useEffect, useRef, forwardRef, useImperativeHandle, useState } from "react";
 import maplibregl from "maplibre-gl";
 import "maplibre-gl/dist/maplibre-gl.css";
-import { GaugeChart } from "./charts/GaugeChart";
-import { BarChart } from "./charts/BarChart";
-import { PieChart } from "./charts/PieChart";
+import ChartsSection from "./ChartsSection";
 
 const MapView = forwardRef(function MapView({ theme }, ref) {
   const mapContainer = useRef(null);
   const mapRef = useRef(null);
   const stationsDataRef = useRef(null);
-  const [chartData, setChartData] = useState({
-    reconnaissanceCompletion: 75,
-    rockMassClassification: [
-      { name: 'RMR', value: 10 },
-      { name: 'GSI', value: 20 },
-      { name: 'SMR', value: 30 },
-    
-    ],
-    rockfallHazard: [
-      { name: 'Low', value: 40 },
-      { name: 'Medium', value: 35 },
-      { name: 'High', value: 25 },
-    ],
-    protectionWorks: 60,
-    hazardPercentages: [
-      { name: 'Low', value: 40 },
-      { name: 'Medium', value: 35 },
-      { name: 'High', value: 25 },
-    ],
-    stationMaps: [
-      { name: 'Critical', value: 1 },
-      { name: 'Transitional', value: 1 },
-    ],
-  });
 
   const [layersVisibility, setLayersVisibility] = useState({
     area: true,
     roads: true,
     boundary: true,
+    hillshade: true,
   });
 
   const [baseMap, setBaseMap] = useState('default');
+
+  const [selectedStation, setSelectedStation] = useState('');
 
   const baseMapStyles = {
     default: "https://demotiles.maplibre.org/style.json",
@@ -49,7 +26,11 @@ const MapView = forwardRef(function MapView({ theme }, ref) {
   };
 
   const [stationsData, setStationsData] = useState(null);
+  const [newPointsData, setNewPointsData] = useState(null);
+  const [newPointsGeoJSON, setNewPointsGeoJSON] = useState(null);
+  const [allStationsData, setAllStationsData] = useState(null);
 
+const [legendOpen, setLegendOpen] = useState(true);
   const toggleLayer = (layer) => {
     const map = mapRef.current;
     if (!map || !layersVisibility) return;
@@ -63,6 +44,8 @@ const MapView = forwardRef(function MapView({ theme }, ref) {
     } else if (layer === 'boundary') {
       map.setLayoutProperty('boundary-fill', 'visibility', visibility ? 'visible' : 'none');
       map.setLayoutProperty('boundary-outline', 'visibility', visibility ? 'visible' : 'none');
+    } else if (layer === 'hillshade') {
+      map.setLayoutProperty('hillshade-image-layer', 'visibility', visibility ? 'visible' : 'none');
     }
   };
 
@@ -73,12 +56,32 @@ const MapView = forwardRef(function MapView({ theme }, ref) {
       map.setStyle(baseMapStyles[newBaseMap]);
       // Re-add layers after style change
       map.once('style.load', () => {
-        addLayersToMap(map);
+        addLayersToMap(map, newBaseMap, newPointsGeoJSON);
+        bindStationPopupEvents(map, newPointsGeoJSON);
       });
     }
   };
 
-  const addLayersToMap = (map) => {
+
+  const zoomToStation = (stationName) => {
+    setSelectedStation(stationName);
+    if (!stationsData || !stationName) return;
+    const station = stationsData.features.find(f => f.properties.Name === stationName);
+    if (station && station.geometry && station.geometry.coordinates) {
+      const map = mapRef.current;
+      if (map) {
+        map.flyTo({
+          center: station.geometry.coordinates,
+          zoom: 18,
+          duration: 2000
+        });
+      }
+    } else {
+      console.warn('Station not found:', stationName);
+    }
+  };
+
+  const addLayersToMap = (map, currentBaseMap = baseMap, newPointsGeoJSON = null) => {
     // 🔹 Terrain
     if (!map.getSource('terrain')) {
       map.addSource("terrain", {
@@ -102,6 +105,28 @@ const MapView = forwardRef(function MapView({ theme }, ref) {
         id: "hillshade",
         type: "hillshade",
         source: "terrain"
+      });
+    }
+
+    // 🔹 Hillshade Image - Only add for dark base map
+    if (currentBaseMap === 'dark' && !map.getSource('hillshade-image')) {
+      map.addSource("hillshade-image", {
+        type: "image",
+        url: "/data/Hillshade_NoData_1.png",
+        coordinates: [
+          [39.854, 21.46], // top left
+          [40.015, 21.46], // top right
+          [40.015, 21.326], // bottom right
+          [39.854, 21.326]  // bottom left
+        ]
+      });
+      map.addLayer({
+        id: "hillshade-image-layer",
+        type: "raster",
+        source: "hillshade-image",
+        paint: {
+          "raster-opacity": 0.7
+        }
       });
     }
 
@@ -137,66 +162,91 @@ const MapView = forwardRef(function MapView({ theme }, ref) {
     if (stationsData && !map.getSource('stations')) {
       map.addSource("stations", { type: "geojson", data: stationsData });
 
-      map.addLayer({
-        id: "stations-layer",
-        type: "circle",
-        source: "stations",
-        paint: {
-          // radius by symbol
-          "circle-radius": [
-            "match",
-            ["get", "_sym"],
-            "S",
-            18,
-            "n",
-            9,
-            "Samples",
-            14,
-            "Critical",
-            14,
-            "Transitional",
-            15,
-            12,
-          ],
-          // color by symbol
-          "circle-color": [
-            "match",
-            ["get", "_sym"],
-            "S",
-            "#007bff",
-            "n",
-            "#ffd700",
-            "Samples",
-            "#ff0000",
-            "Critical",
-            "#888888",
-            "Transitional",
-            "#00aa00",
-            "#ff0000",
-          ],
-          "circle-stroke-color": "#000000",
-          "circle-stroke-width": 1,
-        },
-      });
+    map.addLayer({
+  id: "stations-layer",
+  type: "circle",
+  source: "stations",
+  paint: {
+    // الحجم (اختياري)
+    "circle-radius": [
+      "case",
+      ["==", ["get", "Type"], "Sample"],
+      14,
+      12
+    ],
 
-      // Add labels to stations
-      map.addLayer({
-        id: "stations-labels",
-        type: "symbol",
-        source: "stations",
-        layout: {
-          "text-field": ["get", "Name"],
-          "text-size": 12,
-          "text-offset": [0, 1.5],
-          "text-anchor": "top"
-        },
-        paint: {
-          "text-color": "#000000",
-          "text-halo-color": "#ffffff",
-          "text-halo-width": 1
-        }
-      });
+    // اللون
+    "circle-color": [
+      "case",
+      ["==", ["get", "Type"], "Sample"],
+      "#ff0000", // 🔴 Sample
+      "#007bff"  // 🔵 Station
+    ],
+
+    "circle-stroke-color": "#000000",
+    "circle-stroke-width": 1
+  }
+});
+
+      if (!map.getLayer('stations-labels')) {
+        // Add labels to stations
+        map.addLayer({
+          id: "stations-labels",
+          type: "symbol",
+          source: "stations",
+          layout: {
+            "text-field": ["get", "Name"],
+            "text-size": 12,
+            "text-offset": [0, 1.5],
+            "text-anchor": "top"
+          },
+          paint: {
+            "text-color": "#000000",
+            "text-halo-color": "#ffffff",
+            "text-halo-width": 1
+          }
+        });
+      }
+
+      // Add label under S1 if applicable
+      const sFeatures = stationsData.features.filter((f) => f.properties && f.properties._sym === "S" && f.geometry && f.geometry.coordinates);
+  let s1LabelFeature = null;
+
+if (sFeatures.length >= 2) {
+  const lineCoords = sFeatures.map((f) => f.geometry.coordinates);
+  const a = lineCoords[0];
+  const b = lineCoords[1];
+  const mid = [(a[0] + b[0]) / 2, (a[1] + b[1]) / 2];
+
+  s1LabelFeature = {
+    type: "Feature",
+    geometry: { type: "Point", coordinates: mid },
+    properties: { label: "المحطة الأولى" }
+  };
+}
+
+if (s1LabelFeature && !map.getSource("s1-station-label")) {
+  map.addSource("s1-station-label", {
+    type: "geojson",
+    data: {
+      type: "FeatureCollection",
+      features: [s1LabelFeature]
     }
+  });
+
+  map.addLayer({
+    id: "s1-station-label-layer",
+    type: "symbol",
+    source: "s1-station-label",
+    layout: {
+      "text-field": ["get", "label"],
+      "text-size": 10,
+      "text-offset": [0, -1.5],
+    },
+    paint: { "text-color": "#000000" },
+  });
+}
+} // 👈 قفلة if (stationsData && !map.getSource('stations'))
 
     // Add other layers
     if (!map.getSource('area')) {
@@ -264,391 +314,393 @@ const MapView = forwardRef(function MapView({ theme }, ref) {
         }
       });
     }
+
+    // Add new points if data is provided
+    if (newPointsGeoJSON && !map.getSource('new-points')) {
+      map.addSource("new-points", { type: "geojson", data: newPointsGeoJSON });
+
+      map.addLayer({
+        id: "new-points-layer",
+        type: "circle",
+        source: "new-points",
+        paint: {
+          "circle-radius": 8,
+          "circle-color": [
+            "case",
+            ["==", ["get", "Discription"], "Rock fall"],
+            "#ff0000", // 🔴 Rock fall
+            ["==", ["get", "Discription"], "Transition zone"],
+            "#00aa00", // 🟢 Transition zone
+            ["==", ["get", "Discription"], "Water channel"],
+            "#0000ff", // 🔵 Water channel
+            ["==", ["get", "Discription"], "Geological phenomena"],
+            "#ffd700", // 🟡 Geological phenomena
+            ["==", ["get", "Discription"], "اعمال الحماية القائمة"],
+            "#888888", // ⚫ Protection works
+            "#000000" // Default black
+          ],
+          "circle-stroke-color": "#ffffff",
+          "circle-stroke-width": 2
+        }
+      });
+    }
+
+    // Add AllStations layer
+    if (!map.getSource('all-stations')) {
+      map.addSource("all-stations", {
+        type: "geojson",
+        data: "/data/AllStations.geojson"
+      });
+
+      map.addLayer({
+        id: "all-stations-layer",
+        type: "circle",
+        source: "all-stations",
+        paint: {
+          "circle-radius": 6,
+          "circle-color": [
+            "case",
+            ["==", ["get", "zone"], "North-East"],
+            "#00ff00", // 🟢 North-East
+            ["==", ["get", "zone"], "South-West"],
+            "#ff00ff", // 🟣 South-West
+            ["==", ["get", "zone"], "Central"],
+            "#00ffff", // 🔵 Central
+            "#ffa500" // 🟠 Default orange
+          ],
+          "circle-stroke-color": "#000000",
+          "circle-stroke-width": 1,
+          "circle-opacity": 0.8
+        }
+      });
+
+      // Add labels for all stations
+      map.addLayer({
+        id: "all-stations-labels",
+        type: "symbol",
+        source: "all-stations",
+        layout: {
+          "text-field": ["get", "StationNam"],
+          "text-size": 10,
+          "text-offset": [0, 1.2],
+          "text-anchor": "top"
+        },
+        paint: {
+          "text-color": "#000000",
+          "text-halo-color": "#ffffff",
+          "text-halo-width": 1
+        }
+      });
+    }
   };
 
-const [legendOpen, setLegendOpen] = useState(true);
+const bindStationPopupEvents = (map, newPointsGeoJSON = null) => {
+  if (!map || !map.getLayer("stations-layer")) return;
 
-  useEffect(() => {
-    const map = new maplibregl.Map({
-      container: mapContainer.current,
-      style: baseMapStyles[baseMap],
-      center: [39.9422281607, 21.4310162095],
-      zoom: 12,
-      pitch: 75,
-      bearing: -45,
-      antialias: true,
-    });
-    mapRef.current = map;
+  let currentPopup = null;
 
-    map.once("load", () => {
-      // 🔹 Terrain
-      map.addSource("terrain", {
-        type: "raster-dem",
-        tiles: [
-          "https://s3.amazonaws.com/elevation-tiles-prod/terrarium/{z}/{x}/{y}.png"
-        ],
-        tileSize: 256,
-        encoding: "terrarium",
-        maxzoom: 11
-      });
+  const onClick = (e) => {
+    if (!e.features || !e.features.length) return;
 
-      map.setTerrain({
-        source: "terrain",
-        exaggeration: 1.5
-      });
+    const feature = e.features[0];
+    const coords = feature.geometry.coordinates;
+    const props = feature.properties || {};
 
-      map.addLayer({
-        id: "hillshade",
-        type: "hillshade",
-        source: "terrain"
-      });
+    const name = props.Name ? String(props.Name).trim() : null;
+    const id = props.OBJECTID || props.id || "unknown";
 
-      // 🔹 Polygon GeoJSON
-      map.addSource("my-geojson", {
-        type: "geojson",
-        data: "/data/layer.geojson"
-      });
+    const candidates = [];
 
-      map.addLayer({
-        id: "geojson-fill",
-        type: "fill",
-        source: "my-geojson",
-        paint: {
-          "fill-color": "#000000",
-          "fill-opacity": 0
-        }
-      });
-
-      map.addLayer({
-        id: "geojson-outline",
-        type: "line",
-        source: "my-geojson",
-        paint: {
-          "line-color": "#000000",
-          "line-width": 6
-        }
-      });
-
-      // 🔹 Stations: fetch, add symbology property, then add source+layer
-      fetch("/data/stations.geojson")
-        .then((r) => r.json())
-        .then((data) => {
-          // derive simple symbol category based on Type and Name
-          let sampleCounter = 1;
-          data.features.forEach((f) => {
-            const type = f.properties && String(f.properties.Type || "");
-            const name = f.properties && String(f.properties.Name || "");
-            let sym = "other";
-            if (type === "Sample") {
-              sym = "Samples";
-              // assign sequential sample index so we can map to sample1.jpeg, sample2.jpeg, ...
-              f.properties = { ...f.properties, _sym: sym, _sampleIndex: sampleCounter };
-              sampleCounter += 1;
-            } else {
-              if (name === "Critical") sym = "Critical";
-              else if (name === "Transitional") sym = "Transitional";
-              else if (/s/i.test(name) && name.toLowerCase() !== "samples") sym = "S";
-              else if (/^n/i.test(name)) sym = "n";
-              f.properties = { ...f.properties, _sym: sym };
-            }
-          });
-
-          stationsDataRef.current = data;
-          setStationsData(data);
-
-          // Update station maps count
-          const criticalCount = data.features.filter(f => f.properties && f.properties._sym === 'Critical').length;
-          const transitionalCount = data.features.filter(f => f.properties && f.properties._sym === 'Transitional').length;
-          setChartData(prev => ({ ...prev, stationMaps: [
-            { name: 'Critical', value: criticalCount },
-            { name: 'Transitional', value: transitionalCount },
-          ] }));
-
-          map.addSource("stations", { type: "geojson", data });
-
-          map.addLayer({
-            id: "stations-layer",
-            type: "circle",
-            source: "stations",
-            paint: {
-              // radius by symbol
-              "circle-radius": [
-                "match",
-                ["get", "_sym"],
-                "S",
-                18,
-                "n",
-                9,
-                "Samples",
-                14,
-                "Critical",
-                14,
-                "Transitional",
-                15,
-                12,
-              ],
-              // color by symbol
-              "circle-color": [
-                "match",
-                ["get", "_sym"],
-                "S",
-                "#007bff",
-                "n",
-                "#ffd700",
-                "Samples",
-                "#ff0000",
-                "Critical",
-                "#888888",
-                "Transitional",
-                "#00aa00",
-                "#ff0000",
-              ],
-              "circle-stroke-color": "#000000",
-              "circle-stroke-width": 1,
-            },
-          });
-
-          // Add new layers
-          map.addSource("area", {
-            type: "geojson",
-            data: "/data/area.geojson"
-          });
-          map.addLayer({
-            id: "area-fill",
-            type: "fill",
-            source: "area",
-            paint: {
-              "fill-color": "#ff0000",
-              "fill-opacity": 0.3
-            }
-          });
-          map.addLayer({
-            id: "area-outline",
-            type: "line",
-            source: "area",
-            paint: {
-              "line-color": "#ff0000",
-              "line-width": 2
-            }
-          });
-
-          map.addSource("roads", {
-            type: "geojson",
-            data: "/data/roads.geojson"
-          });
-          map.addLayer({
-            id: "roads-line",
-            type: "line",
-            source: "roads",
-            paint: {
-              "line-color": "#0000ff",
-              "line-width": 3
-            }
-          });
-
-          map.addSource("boundary", {
-            type: "geojson",
-            data: "/data/boundary.geojson"
-          });
-          map.addLayer({
-            id: "boundary-fill",
-            type: "fill",
-            source: "boundary",
-            paint: {
-              "fill-color": "#ffd000ff",
-              "fill-opacity": 0.2
-            }
-          });
-          map.addLayer({
-            id: "boundary-outline",
-            type: "line",
-            source: "boundary",
-            paint: {
-              "line-color": "#ff9100ff",
-              "line-width": 2
-            }
-          });
-
-          // Add labels to stations
-          map.addLayer({
-            id: "stations-labels",
-            type: "symbol",
-            source: "stations",
-            layout: {
-              "text-field": ["get", "Name"],
-              "text-size": 12,
-              "text-offset": [0, 1.5],
-              "text-anchor": "top"
-            },
-            paint: {
-              "text-color": "#000000",
-              "text-halo-color": "#ffffff",
-              "text-halo-width": 1
-            }
-          });
-
-          // Add label under S1
-          const s1LabelFeature = {
-            type: "Feature",
-            geometry: { type: "Point", coordinates: mid },
-            properties: { label: "المحطة الأولى" }
-          };
-          map.addSource("s1-station-label", { type: "geojson", data: { type: "FeatureCollection", features: [s1LabelFeature] } });
-          map.addLayer({
-            id: "s1-station-label-layer",
-            type: "symbol",
-            source: "s1-station-label",
-            layout: {
-              "text-field": ["get", "label"],
-              "text-size": 10,
-              "text-offset": [0, -1.5],
-            },
-            paint: { "text-color": "#000000" },
-          });
-        })
-        .catch(() => {
-          stationsDataRef.current = null;
-          // fallback: add empty source so UI doesn't break
-          map.addSource("stations", { type: "geojson", data: { type: "FeatureCollection", features: [] } });
-          map.addLayer({
-            id: "stations-layer",
-            type: "circle",
-            source: "stations",
-            paint: { "circle-radius": 10, "circle-color": "#ff0000", "circle-stroke-color": "#000000", "circle-stroke-width": 1 },
-          });
-        });
-
-      // 🔹 Popup + interactions
-      map.on("click", "stations-layer", (e) => {
-        const feature = e.features[0];
-        const coords = feature.geometry.coordinates;
-        const props = feature.properties || {};
-
-        // Try to show image named after the point Name (user placed files in public/data/images/samples/)
-        const name = (props.Name && String(props.Name).trim()) || null;
-        const id = props.OBJECTID || props.id || "unknown";
-
-        // build candidate paths based on actual filenames user has (sample1.jpeg, Critical.jpeg, Transitional.jpeg)
-        const candidates = [];
-        if (name === "Samples" || props._sym === "Samples") {
-          // use the sequential sample index assigned earlier
-          const idx = props._sampleIndex || props._sampleIdx || null;
-          if (idx) {
-            candidates.push(`/data/images/samples/sample${idx}.jpeg`);
-            candidates.push(`/data/images/samples/sample${idx}.jpg`);
-            candidates.push(`/data/images/samples/sample${idx}.png`);
-          }
-          // also try generic "Samples" filename
-          candidates.push(`/data/images/samples/Samples.jpeg`);
-          candidates.push(`/data/images/samples/Samples.jpg`);
-        } else if (name) {
-          // try exact name filenames like Critical.jpeg or Transitional.jpeg
-          const safe = name.replace(/\s+/g, "_");
-          candidates.push(`/data/images/samples/${safe}.jpeg`);
-          candidates.push(`/data/images/samples/${safe}.jpg`);
-          candidates.push(`/data/images/samples/${safe}.png`);
-          const lower = safe.toLowerCase();
-          if (lower !== safe) {
-            candidates.push(`/data/images/samples/${lower}.jpeg`);
-            candidates.push(`/data/images/samples/${lower}.jpg`);
-            candidates.push(`/data/images/samples/${lower}.png`);
-          }
-        }
-        // fallback patterns by id
-        candidates.push(`/data/images/samples/samples_${id}.jpg`);
-        candidates.push(`/data/images/samples/samples_${id}.jpeg`);
-        candidates.push(`/data/images/samples/critical_${id}.jpg`);
-        candidates.push(`/data/images/samples/transitional_${id}.jpg`);
-
-        // inline onerror chain: try next candidate, hide image if none left
-        const first = candidates[0];
-        const rest = candidates.slice(1);
-        let onerrorScript = "";
-        if (rest.length > 0) {
-          // build nested onerror that cycles through rest
-          // example: this.onerror=null;this.src='next';this.onerror=function(){...}
-          let nested = "this.style.display='none';";
-          for (let i = rest.length - 1; i >= 0; i--) {
-            const src = rest[i].replace(/"/g, '\\"');
-            nested = `this.onerror=null;this.src=\"${src}\";this.onerror=function(){${nested}};`;
-          }
-          onerrorScript = nested;
-        } else {
-          onerrorScript = "this.style.display='none';";
-        }
-
-        const html = `
-          <div style="min-width:300px;max-width:500px;font-family:Arial, Helvetica, sans-serif;color:#111">
-            <div style="display:flex;gap:10px;align-items:flex-start">
-              <img src="${first}" alt="img-${id}" style="width:400px;height:250px;border-radius:6px;object-fit:cover;box-shadow:0 2px 6px rgba(0,0,0,0.2)" onerror="${onerrorScript}" />
-              <div style="flex:1">
-                <div style="font-weight:700;font-size:18px;margin-bottom:6px">${props.Name || "-"}</div>
-                <div style="font-size:16px;color:#444;margin-bottom:4px">معرف: <span style="font-weight:600">${props.OBJECTID || "-"}</span></div>
-                <div style="font-size:16px;color:#444">الفئة: <span style="font-weight:600">${props._sym || props.Name || "-"}</span></div>
-              </div>
-            </div>
-            <div style="margin-top:8px;font-size:14px;color:#666;border-top:1px solid #eee;padding-top:8px">اضغط خارج البوب للإغلاق</div>
-          </div>
-        `;
-new maplibregl.Popup({
-  className: 'custom-popup',
-  maxWidth: '1120px',   // 👈 هنا تتحكمّي في العرض
-  closeButton: true
-})
-.setLngLat(coords)
-.setHTML(html)
-.addTo(map);
-
-      });
-
-      map.on("mouseenter", "stations-layer", () => {
-        map.getCanvas().style.cursor = "pointer";
-        map.dragPan.disable();
-      });
-
-      map.on("mouseleave", "stations-layer", () => {
-        map.getCanvas().style.cursor = "";
-        map.dragPan.enable();
-      });
-    });
-
-    return () => map.remove();
-  }, []);
-
-  useImperativeHandle(ref, () => ({
-    zoomToFeatureByName(name) {
-      const map = mapRef.current;
-      const data = stationsDataRef.current;
-      if (!map || !data) return;
-
-      const feature = data.features.find(
-        (f) => f.properties && String(f.properties.Name) === String(name)
-      );
-      if (feature && feature.geometry && feature.geometry.coordinates) {
-        map.flyTo({ center: feature.geometry.coordinates, zoom: 16 });
+    if (name === "Samples" || props._sym === "Samples") {
+      const idx = props._sampleIndex || null;
+      if (idx) {
+        ["jpeg", "jpg", "png"].forEach(ext =>
+          candidates.push(`/data/images/samples/sample${idx}.${ext}`)
+        );
       }
-    },
-    fitToAll() {
-      const map = mapRef.current;
-      const data = stationsDataRef.current;
-      if (!map || !data || !data.features || data.features.length === 0) return;
+    } else if (name) {
+      const safe = name.replace(/\s+/g, "_");
+      [safe, safe.toLowerCase()].forEach(n => {
+        ["jpeg", "jpg", "png"].forEach(ext =>
+          candidates.push(`/data/images/samples/${n}.${ext}`)
+        );
+      });
+    }
 
-      const coords = data.features
-        .map((f) => f.geometry && f.geometry.coordinates)
-        .filter(Boolean);
-      const lons = coords.map((c) => c[0]);
-      const lats = coords.map((c) => c[1]);
-      const minLon = Math.min(...lons);
-      const maxLon = Math.max(...lons);
-      const minLat = Math.min(...lats);
-      const maxLat = Math.max(...lats);
+    const first = candidates[0];
 
-      map.fitBounds([
-        [minLon, minLat],
-        [maxLon, maxLat],
-      ], { padding: 40 });
-    },
-  }));
+    const html = `
+      <div style="min-width:280px">
+        <strong>${props.Name || "-"}</strong>
+        <br/>
+        <img src="${first}" style="width:100%;margin-top:8px"
+          onerror="this.style.display='none'" />
+      </div>
+    `;
+
+    new maplibregl.Popup({ closeButton: true })
+      .setLngLat(coords)
+      .setHTML(html)
+      .addTo(map);
+  };
+
+  map.on("click", "stations-layer", onClick);
+
+  map.on("mouseenter", "stations-layer", () => {
+    map.getCanvas().style.cursor = "pointer";
+  });
+
+  map.on("mouseleave", "stations-layer", () => {
+    map.getCanvas().style.cursor = "";
+  });
+
+  // For new points
+  if (newPointsGeoJSON) {
+    const onNewPointClick = (e) => {
+      if (!e.features || !e.features.length) return;
+
+      const feature = e.features[0];
+      const coords = feature.geometry.coordinates;
+      const props = feature.properties || {};
+
+      const code = props.Code;
+      const description = props.Discription;
+      const date = props.Date;
+
+      // Find image based on Code
+      let candidates = [];
+      if (code) {
+        // If code already includes extension, use it directly
+        if (code.includes('.')) {
+          candidates.push(`/data/images/samples/${code}`);
+        } else {
+          // Otherwise, try different extensions
+          ["jpeg", "jpg", "png"].forEach(ext =>
+            candidates.push(`/data/images/samples/${code}.${ext}`)
+          );
+        }
+      }
+
+      const first = candidates[0];
+
+      const html = `
+        <div style="min-width:320px; max-width:400px;">
+          <strong>${description || "-"}</strong><br/>
+          Code: ${code}<br/>
+          Date: ${date}<br/>
+          <img src="${first}" style="width:100%; max-width:350px; height:auto; margin-top:8px; cursor:pointer; border-radius:4px;"
+            onerror="this.style.display='none'"
+            onclick="window.open(this.src, '_blank')" />
+        </div>
+      `;
+
+      new maplibregl.Popup({ closeButton: true })
+        .setLngLat(coords)
+        .setHTML(html)
+        .addTo(map);
+    };
+
+    map.on("click", "new-points-layer", onNewPointClick);
+
+    const onNewPointHover = (e) => {
+      if (currentPopup) currentPopup.remove();
+
+      if (!e.features || !e.features.length) return;
+
+      const feature = e.features[0];
+      const coords = feature.geometry.coordinates;
+      const props = feature.properties || {};
+
+      const code = props.Code;
+      const description = props.Discription;
+      const date = props.Date;
+
+      // Find image based on Code
+      let candidates = [];
+      if (code) {
+        // If code already includes extension, use it directly
+        if (code.includes('.')) {
+          candidates.push(`/data/images/samples/${code}`);
+        } else {
+          // Otherwise, try different extensions
+          ["jpeg", "jpg", "png"].forEach(ext =>
+            candidates.push(`/data/images/samples/${code}.${ext}`)
+          );
+        }
+      }
+
+      const first = candidates[0];
+
+      const html = `
+        <div style="min-width:280px">
+          <strong>${description || "-"}</strong><br/>
+          Code: ${code}<br/>
+          Date: ${date}<br/>
+          <img src="${first}" style="width:100%;margin-top:8px;max-height:200px;object-fit:cover"
+            onerror="this.style.display='none'" />
+        </div>
+      `;
+
+      currentPopup = new maplibregl.Popup({ closeButton: false, closeOnClick: false })
+        .setLngLat(coords)
+        .setHTML(html)
+        .addTo(map);
+    };
+
+    const onNewPointLeave = () => {
+      if (currentPopup) {
+        currentPopup.remove();
+        currentPopup = null;
+      }
+    };
+
+    map.on("mouseenter", "new-points-layer", onNewPointHover);
+    map.on("mouseleave", "new-points-layer", onNewPointLeave);
+  }
+
+  // Bind popup events for all-stations-layer
+  if (map.getLayer("all-stations-layer")) {
+    const onAllStationsClick = (e) => {
+      if (!e.features || !e.features.length) return;
+
+      const feature = e.features[0];
+      const coords = feature.geometry.coordinates;
+      const props = feature.properties || {};
+
+      const html = `
+        <div style="min-width:200px; padding: 8px;">
+          <strong style="font-size: 14px;">${props.StationNam || "-"}</strong><br/>
+          <hr style="margin: 6px 0;"/>
+          <b>Zone:</b> ${props.zone || "-"}<br/>
+          <b>Weight:</b> ${props.weight ? props.weight.toFixed(4) : "-"}<br/>
+          <b>Priority:</b> ${props.priority ? props.priority.toFixed(4) : "-"}<br/>
+          <b>Pair Number:</b> ${props.PairNum || "-"}<br/>
+          <b>Coordinates:</b><br/>
+          X: ${props.X ? props.X.toFixed(6) : "-"}<br/>
+          Y: ${props.Y ? props.Y.toFixed(6) : "-"}
+        </div>
+      `;
+
+      new maplibregl.Popup({ closeButton: true })
+        .setLngLat(coords)
+        .setHTML(html)
+        .addTo(map);
+    };
+
+    map.on("click", "all-stations-layer", onAllStationsClick);
+
+    map.on("mouseenter", "all-stations-layer", () => {
+      map.getCanvas().style.cursor = "pointer";
+    });
+
+    map.on("mouseleave", "all-stations-layer", () => {
+      map.getCanvas().style.cursor = "";
+    });
+  }
+};
+
+
+useEffect(() => {
+  if (mapRef.current) return; // 👈 امنع إعادة الإنشاء
+
+  const map = new maplibregl.Map({
+    container: mapContainer.current,
+    style: baseMapStyles[baseMap],
+    center: [39.9422281607, 21.4310162095],
+    zoom: 12,
+    pitch: 75,
+    bearing: -45,
+    antialias: true,
+  });
+
+  mapRef.current = map;
+
+  map.once("load", () => {
+    Promise.all([
+      fetch("/data/stations.geojson").then(r => r.json()),
+      fetch("/data/مشروعالشعائرال_FeaturesToJSO.geojson").then(r => r.json()).catch(() => null)
+    ])
+      .then(([stationsData, newPointsData]) => {
+        stationsDataRef.current = stationsData;
+        setStationsData(stationsData);
+        setNewPointsData(newPointsData);
+
+        // Use the GeoJSON directly, filter out features with null geometry, and add icon property
+        const geoJSON = newPointsData ? {
+          ...newPointsData,
+          features: newPointsData.features
+            .filter(f => f.geometry && f.geometry.coordinates)
+            .map(f => ({
+              ...f,
+              properties: {
+                ...f.properties,
+                icon: f.properties.Code ? `/data/images/samples/${f.properties.Code}` : null
+              }
+            }))
+        } : null;
+        setNewPointsGeoJSON(geoJSON);
+
+        addLayersToMap(map, baseMap, geoJSON);
+        bindStationPopupEvents(map, geoJSON);
+      });
+  });
+
+  return () => {
+    map.remove(); // ✅ cleanup
+    mapRef.current = null;
+  };
+}, []);
+
+
+
+useImperativeHandle(ref, () => ({
+  zoomToFeatureByName(name) {
+    const map = mapRef.current;
+    const data = stationsDataRef.current;
+
+    if (!map || !data || !name) return;
+
+    const feature = data.features.find(
+      (f) => f?.properties?.Name === name
+    );
+
+    if (feature?.geometry?.coordinates) {
+      map.flyTo({
+        center: feature.geometry.coordinates,
+        zoom: 18,
+        duration: 1500,
+        essential: true
+      });
+    }
+  },
+
+  fitToAll() {
+    const map = mapRef.current;
+    const data = stationsDataRef.current;
+
+    if (!map || !data?.features?.length) return;
+
+    const coords = data.features
+      .map((f) => f?.geometry?.coordinates)
+      .filter(Boolean);
+
+    if (!coords.length) return;
+
+    const lons = coords.map(c => c[0]);
+    const lats = coords.map(c => c[1]);
+
+    map.fitBounds(
+      [
+        [Math.min(...lons), Math.min(...lats)],
+        [Math.max(...lons), Math.max(...lats)]
+      ],
+      { padding: 40, duration: 1200 }
+    );
+  }
+}));
+
+
+
 
   return (
     <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column" }}>
@@ -721,26 +773,35 @@ new maplibregl.Popup({
     <div><span style={{ color: '#888888' }}>●</span> Critical</div>
     <div><span style={{ color: '#00aa00' }}>●</span> Transitional</div>
 
+  
     <hr style={{ margin: '8px 0' }} />
 
-    <div style={{ fontWeight: 600, marginBottom: 6 }}>Base Map</div>
-    <select
-      value={baseMap}
-      onChange={(e) => changeBaseMap(e.target.value)}
-      style={{
-        width: '100%',
-        padding: '4px',
-        borderRadius: '4px',
-        backgroundColor: theme === 'dark' ? '#333' : '#fff',
-        color: theme === 'dark' ? '#fff' : '#000',
-        border: '1px solid #ccc'
-      }}
-    >
-      <option value="default">Default</option>
-      <option value="dark">Dark</option>
-      <option value="imagery">Imagery</option>
-    </select>
+    {/* DEM Layer - Only visible when Dark base map is selected */}
+    {baseMap === 'dark' && (
+      <div style={{ marginBottom: 6 }}>
+        <label
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 8,
+            cursor: 'pointer'
+          }}
+        >
+          <input
+            type="checkbox"
+            checked={layersVisibility.hillshade}
+            onChange={() => toggleLayer('hillshade')}
+            style={{
+              accentColor: theme === 'dark' ? '#4da3ff' : '#007bff',
+              cursor: 'pointer'
+            }}
+          />
+          DEM
+        </label>
+      </div>
+    )}
 
+    <div style={{ fontWeight: 600, marginBottom: 6 }}>Layers</div>
     {[
       { key: 'area', label: 'Area' },
       { key: 'roads', label: 'Roads' },
@@ -771,19 +832,56 @@ new maplibregl.Popup({
   </div>
 )}
 
+{/* Base Map Selection - Separate from legend */}
+<div
+  style={{
+    position: 'absolute',
+    top: 15,
+    left: 12,
+    width: 200,
+    padding: 12,
+    zIndex: 9,
+    backgroundColor: theme === 'dark'
+      ? 'rgba(20,25,30,0.95)'
+      : '#f7f7f7',
+    color: theme === 'dark' ? '#fff' : '#000',
+    borderRadius: 10,
+    boxShadow: '0 4px 12px rgba(0,0,0,0.3)'
+  }}
+>
+  {/* Base Map Options:
+     - default: 🗺️ Standard map style
+     - dark: 🌙 Dark theme map
+     - imagery: 🛰️ Satellite imagery
+  */}
+  <div style={{ fontWeight: 600, marginBottom: 6, display: 'flex', alignItems: 'center', gap: 8 }}>
+    🗺️ Base Map
+  </div>
+  <select
+    value={baseMap}
+    onChange={(e) => changeBaseMap(e.target.value)}
+    style={{
+      width: '100%',
+      padding: '4px',
+      borderRadius: '4px',
+      backgroundColor: theme === 'dark' ? '#333' : '#fff',
+      color: theme === 'dark' ? '#fff' : '#000',
+      border: '1px solid #ccc'
+    }}
+  >
+    <option value="default">🗺️ Default</option>
+    <option value="dark">🌙 Dark</option>
+    <option value="imagery">🛰️ Imagery</option>
+  </select>
+</div>
+
 
       </div>
-      <div style={{ height: "60%", padding: "3px",  backgroundColor: theme === 'dark' ? '#1a1a1a' : '#fff' }}>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "10px" }}>
-          <GaugeChart value={chartData.reconnaissanceCompletion} title="استكمال المسح الاستطلاعي" theme={theme} />
-          <GaugeChart value={chartData.protectionWorks} title="أعمال الحماية القائمة" theme={theme} />
-          <PieChart data={chartData.rockfallHazard} title="مسح المخاطر السقوط الصخري" theme={theme} />
-        </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "10px" }}>
-          <BarChart data={chartData.rockMassClassification} title="تصنيف الكتل الصخريه" theme={theme} />
-          <BarChart data={chartData.hazardPercentages} title="مسح المخاطر السقوط الصخري (%)" theme={theme} />
-          <BarChart data={chartData.stationMaps} title="عدد الخرائط الجغرافية للنقاط الحرجة والانتقالية" theme={theme} />
-        </div>
+
+  
+
+      <div style={{ height: "60%" }}>
+        <ChartsSection theme={theme} />
       </div>
     </div>
   );

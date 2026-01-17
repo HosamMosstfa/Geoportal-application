@@ -1,31 +1,30 @@
-import React from "react";
-import "./Header.css";
+
+
+import headerBg from "../../../assets/HeaderAndLogo/Header.png";
+import logo from "../../../assets/HeaderAndLogo/Logo Dark mode.png";
+
 const Header = () => {
+  const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <div
+      className="header-wrapper"
       style={{
-        backgroundImage: "url('/src/assets/HeaderAndLogo/Header.png')",
+        backgroundImage: `url(${headerBg})`,
         backgroundSize: "cover",
-        backgroundColor: "black",
+        backgroundPosition: "center",
       }}
     >
-      {/* Logos Section */}
-      <div style={{ display: "flex", padding: "30px 20px" }}>
+      <div className="logos-section">
         <img
-          src="/src/assets/HeaderAndLogo/Logo Dark mode.png"
-          alt="Vision Logo"
-          style={{ height: "80px" }}
+          src={logo}
+          alt="Logo"
+          className="header-logo"
+          onClick={() => navigate("/")}
         />
       </div>
 
-      {/* Navbar */}
-      <header className="top-header">
-        <nav className="nav-links">
-          <a href="#">الرئيسية</a>
-          <a href="#">لوحة التحكم</a>
-          <a href="#">تواصل معنا</a>
-        </nav>
-      </header>
     </div>
   );
 };

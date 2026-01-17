@@ -5,24 +5,35 @@ import {
   YAxis,
   CartesianGrid,
   Tooltip,
-  Legend,
   LineChart,
   Line,
 } from "recharts";
 
-function LeftSidebar({ theme = "light" }) {
+function LeftSidebar() {
   /* ---------- Dummy Data ---------- */
 
-  // Elevation scale values provided by the user
-  const elevationTicks = [981, 875, 750, 625, 500, 375, 264];
-  const elevationData = elevationTicks.map((v, i) => ({ name: `${v} m`, elevation: v }));
+  // Elevation distribution data (matching the chart)
+  const elevationData = [
+    { name: '346 م', value: 50 },
+    { name: '426 م', value: 25 },
+    { name: '534 م', value: 13 },
+    { name: '678 م', value: 8 },
+    { name: '981 م', value: 5 },
+  ];
 
+  // Slope angle distribution data (matching the chart)
   const slopeData = [
-    { name: "نقطة 1", slope: 5 },
-    { name: "نقطة 2", slope: 10 },
-    { name: "نقطة 3", slope: 15 },
-    { name: "نقطة 4", slope: 8 },
-    { name: "نقطة 5", slope: 12 },
+    { name: '1.7°', value: 41 },
+    { name: '3.4°', value: 0.5 },
+    { name: '5.7°', value: 5 },
+    { name: '8.5°', value: 1 },
+    { name: '11.3°', value: 4 },
+    { name: '14°', value: 12 },
+    { name: '16.7°', value: 2 },
+    { name: '21.8°', value: 6 },
+    { name: '30.9°', value: 15 },
+    { name: '45°', value: 13 },
+    { name: '90°', value: 1 },
   ];
 
   /* ---------- Stats ---------- */
@@ -33,28 +44,28 @@ function LeftSidebar({ theme = "light" }) {
     { title: "عدد المناطق الحرجة", value: 1 },
   ];
 
-  /* ---------- Styles ---------- */
-  const cardStyle = (theme) => ({
-    border: theme === "light" ? "1px solid #dcdcdc" : "1px solid rgba(255,255,255,0.06)",
-    borderRadius: "10px",
-    padding: "12px",
-    background: theme === "light" ? "#fff" : "linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))",
+  /* ---------- Styles using CSS Variables ---------- */
+  const cardStyle = {
+    border: "1px solid var(--border-color)",
+    borderRadius: "8px",
+    padding: "10px",
+    background: "var(--bg-card-gradient)",
     textAlign: "center",
-    marginBottom: "12px",
-    boxShadow: theme === "light" ? "0 1px 4px rgba(0,0,0,0.08)" : "0 1px 8px rgba(0,0,0,0.35)",
-  });
+    marginBottom: "10px",
+    boxShadow: "var(--shadow-card)",
+  };
 
-  const cardTitle = (theme) => ({
+  const cardTitle = {
     fontSize: "13px",
-    color: theme === "light" ? "#555" : "#ddd",
-    marginBottom: "6px",
-  });
+    color: "var(--text-secondary)",
+    marginBottom: "5px",
+  };
 
-  const cardValue = (theme) => ({
-    fontSize: "26px",
+  const cardValue = {
+    fontSize: "22px",
     fontWeight: "bold",
-    color: theme === "light" ? "#000" : "#fff",
-  });
+    color: "var(--text-primary)",
+  };
 
   return (
     <div
@@ -62,45 +73,46 @@ function LeftSidebar({ theme = "light" }) {
         padding: "12px",
         height: "100%",
         overflowY: "auto",
+        overflowX: "hidden",
         background: "transparent",
-        color: theme === "light" ? "#111" : "#eaeaea",
+        color: "var(--text-primary)",
+        boxSizing: "border-box",
+        width: "100%",
       }}
     >
-      <h3 style={{ marginBottom: "12px" }}>تحليلات</h3>
+      <h3 style={{ marginBottom: "12px", fontSize: "16px", textAlign: "center" }}>تحليلات</h3>
 
       {/* ---------- Number Cards ---------- */}
       <div style={{ marginBottom: "20px" }}>
         {stats.map((item, index) => (
-          <div key={index} style={cardStyle(theme)}>
-            <div style={cardTitle(theme)}>{item.title}</div>
-            <div style={cardValue(theme)}>{item.value}</div>
+          <div key={index} style={cardStyle}>
+            <div style={cardTitle}>{item.title}</div>
+            <div style={cardValue}>{item.value}</div>
           </div>
         ))}
       </div>
 
       {/* ---------- Bar Chart ---------- */}
-      <div style={{ marginBottom: "24px" }}>
-        <h4>الارتفاعات</h4>
-        <BarChart width={220} height={200} data={elevationData}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" tick={{ fontSize: 11 }} />
-          <YAxis ticks={elevationTicks} domain={[Math.min(...elevationTicks), Math.max(...elevationTicks)]} tickFormatter={(v) => `${v} m`} />
-          <Tooltip formatter={(value) => `${value} m`} />
-          <Legend />
-          <Bar dataKey="elevation" fill="#8884d8" />
+      <div style={{ marginBottom: "18px", display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <h4 style={{ fontSize: "14px", marginBottom: "8px", textAlign: "center" }}>توزيع الارتفاعات (%)</h4>
+        <BarChart width={235} height={180} data={elevationData}>
+          <CartesianGrid strokeDasharray="3 3" stroke="var(--chart-grid)" />
+          <XAxis dataKey="name" tick={{ fontSize: 10 }} interval={0} angle={-15} textAnchor="end" height={45} stroke="var(--text-primary)" />
+          <YAxis tickFormatter={(v) => `${v}%`} tick={{ fontSize: 10 }} width={35} stroke="var(--text-primary)" />
+          <Tooltip formatter={(value) => `${value}%`} contentStyle={{ background: "var(--bg-card)", color: "var(--text-primary)", border: "1px solid var(--border-color)" }} />
+          <Bar dataKey="value" fill="var(--chart-bar)" name="النسبة المئوية" />
         </BarChart>
       </div>
 
       {/* ---------- Line Chart ---------- */}
-      <div>
-        <h4>الانحدارات</h4>
-        <LineChart width={220} height={200} data={slopeData}>
-          <CartesianGrid strokeDasharray="3 3" />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Line type="monotone" dataKey="slope" stroke="#82ca9d" />
+      <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+        <h4 style={{ fontSize: "14px", marginBottom: "8px", textAlign: "center" }}>توزيع زاوية الانحدار (%)</h4>
+        <LineChart width={235} height={180} data={slopeData}>
+          <CartesianGrid strokeDasharray="3 3" stroke="var(--chart-grid)" />
+          <XAxis dataKey="name" tick={{ fontSize: 8 }} interval={0} angle={-45} textAnchor="end" height={55} stroke="var(--text-primary)" />
+          <YAxis tickFormatter={(v) => `${v}%`} tick={{ fontSize: 10 }} width={35} stroke="var(--text-primary)" />
+          <Tooltip formatter={(value) => `${value}%`} contentStyle={{ background: "var(--bg-card)", color: "var(--text-primary)", border: "1px solid var(--border-color)" }} />
+          <Line type="monotone" dataKey="value" stroke="var(--chart-line)" name="نسبة المساحة" dot={{ r: 3 }} />
         </LineChart>
       </div>
     </div>

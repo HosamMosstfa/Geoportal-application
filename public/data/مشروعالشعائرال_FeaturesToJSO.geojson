@@ -1,0 +1,2384 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "id": 1,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903366100000028,
+          21.424258800000075
+        ]
+      },
+      "properties": {
+        "OBJECTID": 1,
+        "Discription": "Rock fall",
+        "Longitude": 39.9033661,
+        "Latitude": 21.4242588,
+        "Code": "WhatsApp Image 2026-01-07 at 3.01.45 PM (1).jpeg",
+        "Date": "2026-07-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 2,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903294000000074,
+          21.421269000000052
+        ]
+      },
+      "properties": {
+        "OBJECTID": 2,
+        "Discription": "Rock fall",
+        "Longitude": 39.903294000000002,
+        "Latitude": 21.421268999999999,
+        "Code": "WhatsApp Image 2026-01-07 at 3.18.20 PM.jpeg",
+        "Date": "2026-07-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 3,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.90289400000006,
+          21.421206000000041
+        ]
+      },
+      "properties": {
+        "OBJECTID": 3,
+        "Discription": "Rock fall",
+        "Longitude": 39.902894000000003,
+        "Latitude": 21.421206000000002,
+        "Code": "WhatsApp Image 2026-01-08 at 2.00.50 PM (2).jpe",
+        "Date": "2026-08-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 4,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903297000000066,
+          21.419276000000025
+        ]
+      },
+      "properties": {
+        "OBJECTID": 4,
+        "Discription": "Rock fall",
+        "Longitude": 39.903297000000002,
+        "Latitude": 21.419276,
+        "Code": "WhatsApp Image 2026-01-08 at 3.38.52 PM.jpeg",
+        "Date": "2026-08-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 5,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903524900000036,
+          21.424297700000068
+        ]
+      },
+      "properties": {
+        "OBJECTID": 5,
+        "Discription": "Rock fall",
+        "Longitude": 39.903524900000001,
+        "Latitude": 21.4242977,
+        "Code": "WhatsApp Image 2026-01-08 at 8.57.43 AM.jpeg",
+        "Date": "2026-08-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 6,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.90346640000007,
+          21.424870700000042
+        ]
+      },
+      "properties": {
+        "OBJECTID": 6,
+        "Discription": "Rock fall",
+        "Longitude": 39.903466399999999,
+        "Latitude": 21.4248707,
+        "Code": "WhatsApp Image 2026-01-08 at 9.40.46 AM.jpeg",
+        "Date": "2026-08-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 7,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903523000000064,
+          21.42486800000006
+        ]
+      },
+      "properties": {
+        "OBJECTID": 7,
+        "Discription": "Rock fall",
+        "Longitude": 39.903523,
+        "Latitude": 21.424868,
+        "Code": "WhatsApp Image 2026-01-08 at 11.19.12 AM.jpeg",
+        "Date": "2026-08-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 8,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903428000000076,
+          21.425109000000077
+        ]
+      },
+      "properties": {
+        "OBJECTID": 8,
+        "Discription": "Rock fall",
+        "Longitude": 39.903427999999998,
+        "Latitude": 21.425108999999999,
+        "Code": "WhatsApp Image 2026-01-08 at 12.17.02 PM.jpeg",
+        "Date": "2026-08-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 9,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.902781200000049,
+          21.425202800000022
+        ]
+      },
+      "properties": {
+        "OBJECTID": 9,
+        "Discription": "Rock fall",
+        "Longitude": 39.9027812,
+        "Latitude": 21.425202800000001,
+        "Code": "WhatsApp Image 2026-01-10 at 3.24.57 PM.JPG",
+        "Date": "2026-10-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 10,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903507000000047,
+          21.423693000000071
+        ]
+      },
+      "properties": {
+        "OBJECTID": 10,
+        "Discription": "Rock fall",
+        "Longitude": 39.903506999999998,
+        "Latitude": 21.423693,
+        "Code": "WhatsApp Image 2026-01-11 at 9.40.49 AM.JPG",
+        "Date": "2026-11-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 11,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903803100000061,
+          21.423898200000053
+        ]
+      },
+      "properties": {
+        "OBJECTID": 11,
+        "Discription": "Rock fall",
+        "Longitude": 39.903803099999998,
+        "Latitude": 21.4238982,
+        "Code": "WhatsApp Image 2026-01-11 at 10.13.22 AM.jpeg",
+        "Date": "2026-11-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 12,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903504000000055,
+          21.423695000000066
+        ]
+      },
+      "properties": {
+        "OBJECTID": 12,
+        "Discription": "Rock fall",
+        "Longitude": 39.903503999999998,
+        "Latitude": 21.423694999999999,
+        "Code": "WhatsApp Image 2026-01-11 at 10.19.28 AM.JPG",
+        "Date": "2026-11-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 13,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.902737000000059,
+          21.419986000000051
+        ]
+      },
+      "properties": {
+        "OBJECTID": 13,
+        "Discription": "Rock fall",
+        "Longitude": 39.902737000000002,
+        "Latitude": 21.419986000000002,
+        "Code": "WhatsApp Image 2026-01-11 at 11.22.02 AM.JPG",
+        "Date": "2026-11-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 14,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903392000000053,
+          21.417073000000073
+        ]
+      },
+      "properties": {
+        "OBJECTID": 14,
+        "Discription": "Rock fall",
+        "Longitude": 39.903391999999997,
+        "Latitude": 21.417072999999998,
+        "Code": "WhatsApp Image 2026-01-12 at 10.21.40 AM.jpeg",
+        "Date": "2026-12-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 15,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903720000000078,
+          21.421202000000051
+        ]
+      },
+      "properties": {
+        "OBJECTID": 15,
+        "Discription": "Rock fall",
+        "Longitude": 39.90372,
+        "Latitude": 21.421202000000001,
+        "Code": "WhatsApp Image 2026-01-12 at 11.21.21 AM.JPG",
+        "Date": "2026-12-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 16,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 16,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 17,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.902803000000063,
+          21.421236000000079
+        ]
+      },
+      "properties": {
+        "OBJECTID": 17,
+        "Discription": "Transition zone",
+        "Longitude": 39.902802999999999,
+        "Latitude": 21.421236,
+        "Code": "WhatsApp Image 2026-01-10 at 3.39.30 PM.jpeg",
+        "Date": "2026-10-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 18,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903267000000028,
+          21.422194000000047
+        ]
+      },
+      "properties": {
+        "OBJECTID": 18,
+        "Discription": "Transition zone",
+        "Longitude": 39.903267,
+        "Latitude": 21.422194000000001,
+        "Code": "WhatsApp Image 2026-01-10 at 9.10.18 AM.jpeg",
+        "Date": "2026-10-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 19,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903484000000049,
+          21.422596000000055
+        ]
+      },
+      "properties": {
+        "OBJECTID": 19,
+        "Discription": "Transition zone",
+        "Longitude": 39.903483999999999,
+        "Latitude": 21.422595999999999,
+        "Code": "WhatsApp Image 2026-01-10 at 9.32.42 AM.jpeg",
+        "Date": "2026-10-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 20,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903489000000036,
+          21.422061000000042
+        ]
+      },
+      "properties": {
+        "OBJECTID": 20,
+        "Discription": "Transition zone",
+        "Longitude": 39.903489,
+        "Latitude": 21.422060999999999,
+        "Code": "WhatsApp Image 2026-01-10 at 10.01.37 AM.jpeg",
+        "Date": "2026-10-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 21,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.902813000000037,
+          21.420991000000072
+        ]
+      },
+      "properties": {
+        "OBJECTID": 21,
+        "Discription": "Transition zone",
+        "Longitude": 39.902813000000002,
+        "Latitude": 21.420991000000001,
+        "Code": "WhatsApp Image 2026-01-11 at 9.13.40 AM.jpeg",
+        "Date": "2026-11-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 22,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903226000000075,
+          21.416443000000072
+        ]
+      },
+      "properties": {
+        "OBJECTID": 22,
+        "Discription": "Transition zone",
+        "Longitude": 39.903225999999997,
+        "Latitude": 21.416443000000001,
+        "Code": "WhatsApp Image 2026-01-12 at 10.54.38 AM.jpeg",
+        "Date": "2026-12-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 23,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 23,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 24,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903720000000078,
+          21.421202000000051
+        ]
+      },
+      "properties": {
+        "OBJECTID": 24,
+        "Discription": "Water channel",
+        "Longitude": 39.90372,
+        "Latitude": 21.421202000000001,
+        "Code": "WhatsApp Image 2026-01-07 at 3.03.43 PM.jpeg",
+        "Date": "2026-07-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 25,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903349000000048,
+          21.420544000000064
+        ]
+      },
+      "properties": {
+        "OBJECTID": 25,
+        "Discription": "Water channel",
+        "Longitude": 39.903348999999999,
+        "Latitude": 21.420544,
+        "Code": "WhatsApp Image 2026-01-08 at 8.51.09 AM.jpeg",
+        "Date": "2026-08-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 26,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903352000000041,
+          21.420403000000078
+        ]
+      },
+      "properties": {
+        "OBJECTID": 26,
+        "Discription": "Water channel",
+        "Longitude": 39.903351999999998,
+        "Latitude": 21.420403,
+        "Code": "WhatsApp Image 2026-01-08 at 9.08.16 AM.jpeg",
+        "Date": "2026-08-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 27,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903200300000037,
+          21.424801600000023
+        ]
+      },
+      "properties": {
+        "OBJECTID": 27,
+        "Discription": "Water channel",
+        "Longitude": 39.903200300000002,
+        "Latitude": 21.424801599999999,
+        "Code": "WhatsApp Image 2026-01-08 at 12.05.25 PM.jpeg",
+        "Date": "2026-08-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 28,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903036300000053,
+          21.423341900000025
+        ]
+      },
+      "properties": {
+        "OBJECTID": 28,
+        "Discription": "Water channel",
+        "Longitude": 39.903036299999997,
+        "Latitude": 21.4233419,
+        "Code": "WhatsApp Image 2026-01-10 at 8.31.47 AM.jpeg",
+        "Date": "2026-10-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 29,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.902900000000045,
+          21.420210000000054
+        ]
+      },
+      "properties": {
+        "OBJECTID": 29,
+        "Discription": "Water channel",
+        "Longitude": 39.902900000000002,
+        "Latitude": 21.420210000000001,
+        "Code": "WhatsApp Image 2026-01-11 at 9.20.09 AM.JPG",
+        "Date": "2026-11-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 30,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.902915000000064,
+          21.420578000000035
+        ]
+      },
+      "properties": {
+        "OBJECTID": 30,
+        "Discription": "Water channel",
+        "Longitude": 39.902915,
+        "Latitude": 21.420577999999999,
+        "Code": "WhatsApp Image 2026-01-11 at 9.20.18 AM.JPG",
+        "Date": "2026-11-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 31,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 31,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 32,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 32,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 33,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 33,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 34,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903528000000051,
+          21.423890400000062
+        ]
+      },
+      "properties": {
+        "OBJECTID": 34,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.903528000000001,
+        "Latitude": 21.423890400000001,
+        "Code": "WhatsApp Image 2026-01-07 at 2.58.21 PM.jpeg",
+        "Date": "2026-07-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 35,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903542000000073,
+          21.423883600000067
+        ]
+      },
+      "properties": {
+        "OBJECTID": 35,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.903542000000002,
+        "Latitude": 21.4238836,
+        "Code": "WhatsApp Image 2026-01-07 at 2.58.22 PM (1).jpeg",
+        "Date": "2026-07-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 36,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903720000000078,
+          21.421202000000051
+        ]
+      },
+      "properties": {
+        "OBJECTID": 36,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.90372,
+        "Latitude": 21.421202000000001,
+        "Code": "WhatsApp Image 2026-01-07 at 3.03.43 PM.jpeg",
+        "Date": "2026-07-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 37,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903376000000037,
+          21.421345000000031
+        ]
+      },
+      "properties": {
+        "OBJECTID": 37,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.903376000000002,
+        "Latitude": 21.421344999999999,
+        "Code": "WhatsApp Image 2026-01-07 at 3.07.02 PM.jpeg",
+        "Date": "2026-07-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 38,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903327300000058,
+          21.424303100000031
+        ]
+      },
+      "properties": {
+        "OBJECTID": 38,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.903327300000001,
+        "Latitude": 21.424303099999999,
+        "Code": "WhatsApp Image 2026-01-07 at 3.15.33 PM.jpeg",
+        "Date": "2026-07-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 39,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903391600000077,
+          21.424028200000066
+        ]
+      },
+      "properties": {
+        "OBJECTID": 39,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.903391599999999,
+        "Latitude": 21.424028199999999,
+        "Code": "WhatsApp Image 2026-01-07 at 3.33.35 PM.jpeg",
+        "Date": "2026-07-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 40,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903443000000038,
+          21.421070000000043
+        ]
+      },
+      "properties": {
+        "OBJECTID": 40,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.903443000000003,
+        "Latitude": 21.42107,
+        "Code": "WhatsApp Image 2026-01-07 at 3.41.15 PM.jpeg",
+        "Date": "2026-07-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 41,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903358000000026,
+          21.420563000000072
+        ]
+      },
+      "properties": {
+        "OBJECTID": 41,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.903357999999997,
+        "Latitude": 21.420563000000001,
+        "Code": "WhatsApp Image 2026-01-08 at 8.55.57 AM.jpeg",
+        "Date": "2026-08-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 42,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903369000000055,
+          21.424268000000041
+        ]
+      },
+      "properties": {
+        "OBJECTID": 42,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.903368999999998,
+        "Latitude": 21.424268000000001,
+        "Code": "WhatsApp Image 2026-01-08 at 8.59.53 AM (1).jpeg",
+        "Date": "2026-08-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 43,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903378000000032,
+          21.424249000000032
+        ]
+      },
+      "properties": {
+        "OBJECTID": 43,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.903377999999996,
+        "Latitude": 21.424249,
+        "Code": "WhatsApp Image 2026-01-08 at 8.59.56 AM.jpeg",
+        "Date": "2026-08-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 44,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903374000000042,
+          21.424247000000037
+        ]
+      },
+      "properties": {
+        "OBJECTID": 44,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.903373999999999,
+        "Latitude": 21.424247000000001,
+        "Code": "WhatsApp Image 2026-01-08 at 8.59.57 AM.jpeg",
+        "Date": "2026-08-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 45,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903373000000045,
+          21.420461000000046
+        ]
+      },
+      "properties": {
+        "OBJECTID": 45,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.903373000000002,
+        "Latitude": 21.420461,
+        "Code": "WhatsApp Image 2026-01-08 at 9.01.15 AM.jpeg",
+        "Date": "2026-08-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 46,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903610000000072,
+          21.424797000000069
+        ]
+      },
+      "properties": {
+        "OBJECTID": 46,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.90361,
+        "Latitude": 21.424797000000002,
+        "Code": "WhatsApp Image 2026-01-08 at 9.04.40 AM.jpeg",
+        "Date": "2026-08-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 47,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903300000000058,
+          21.420369000000051
+        ]
+      },
+      "properties": {
+        "OBJECTID": 47,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.903300000000002,
+        "Latitude": 21.420369000000001,
+        "Code": "WhatsApp Image 2026-01-08 at 9.12.50 AM.jpeg",
+        "Date": "2026-08-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 48,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903304000000048,
+          21.420362000000068
+        ]
+      },
+      "properties": {
+        "OBJECTID": 48,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.903303999999999,
+        "Latitude": 21.420362000000001,
+        "Code": "WhatsApp Image 2026-01-08 at 9.17.01 AM.jpeg",
+        "Date": "2026-08-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 49,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903142000000059,
+          21.420358000000078
+        ]
+      },
+      "properties": {
+        "OBJECTID": 49,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.903142000000003,
+        "Latitude": 21.420358,
+        "Code": "WhatsApp Image 2026-01-08 at 10.09.16 AM.jpeg",
+        "Date": "2026-08-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 50,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.90346900000003,
+          21.426700000000039
+        ]
+      },
+      "properties": {
+        "OBJECTID": 50,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.903469000000001,
+        "Latitude": 21.4267,
+        "Code": "WhatsApp Image 2026-01-08 at 11.12.01 AM (1).jpeg",
+        "Date": "2026-08-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 51,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903462000000047,
+          21.424269000000038
+        ]
+      },
+      "properties": {
+        "OBJECTID": 51,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.903461999999998,
+        "Latitude": 21.424268999999999,
+        "Code": "WhatsApp Image 2026-01-08 at 11.12.01 AM (2).jpeg",
+        "Date": "2026-08-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 52,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903508000000045,
+          21.424403000000041
+        ]
+      },
+      "properties": {
+        "OBJECTID": 52,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.903508000000002,
+        "Latitude": 21.424403000000002,
+        "Code": "WhatsApp Image 2026-01-08 at 11.12.01 AM.jpeg",
+        "Date": "2026-08-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 53,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903434000000061,
+          21.424198000000047
+        ]
+      },
+      "properties": {
+        "OBJECTID": 53,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.903433999999997,
+        "Latitude": 21.424198000000001,
+        "Code": "WhatsApp Image 2026-01-08 at 11.12.02 AM.jpeg",
+        "Date": "2026-08-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 54,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903471000000025,
+          21.42465100000004
+        ]
+      },
+      "properties": {
+        "OBJECTID": 54,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.903471000000003,
+        "Latitude": 21.424651000000001,
+        "Code": "WhatsApp Image 2026-01-08 at 11.18.09 AM.jpeg",
+        "Date": "2026-08-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 55,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903435000000059,
+          21.420049000000063
+        ]
+      },
+      "properties": {
+        "OBJECTID": 55,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.903435000000002,
+        "Latitude": 21.420048999999999,
+        "Code": "WhatsApp Image 2026-01-08 at 12.07.20 PM.jpeg",
+        "Date": "2026-08-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 56,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903536000000031,
+          21.425354000000027
+        ]
+      },
+      "properties": {
+        "OBJECTID": 56,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.903536000000003,
+        "Latitude": 21.425353999999999,
+        "Code": "WhatsApp Image 2026-01-08 at 12.20.40 PM.jpeg",
+        "Date": "2026-08-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 57,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.902786000000049,
+          21.421410000000037
+        ]
+      },
+      "properties": {
+        "OBJECTID": 57,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.902785999999999,
+        "Latitude": 21.421410000000002,
+        "Code": "WhatsApp Image 2026-01-10 at 3.03.26 PM.jpeg",
+        "Date": "2026-10-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 58,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903021000000081,
+          21.421058000000073
+        ]
+      },
+      "properties": {
+        "OBJECTID": 58,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.903021000000003,
+        "Latitude": 21.421057999999999,
+        "Code": "WhatsApp Image 2026-01-10 at 3.20.23 PM.jpeg",
+        "Date": "2026-10-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 59,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.902805000000058,
+          21.423500000000047
+        ]
+      },
+      "properties": {
+        "OBJECTID": 59,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.902805000000001,
+        "Latitude": 21.423500000000001,
+        "Code": "WhatsApp Image 2026-01-10 at 8.56.20 AM.jpeg",
+        "Date": "2026-10-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 60,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.902912000000072,
+          21.423452000000054
+        ]
+      },
+      "properties": {
+        "OBJECTID": 60,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.902912000000001,
+        "Latitude": 21.423452000000001,
+        "Code": "WhatsApp Image 2026-01-10 at 9.14.41 AM (1).jpeg",
+        "Date": "2026-10-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 61,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.902915000000064,
+          21.423451000000057
+        ]
+      },
+      "properties": {
+        "OBJECTID": 61,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.902915,
+        "Latitude": 21.423451,
+        "Code": "WhatsApp Image 2026-01-10 at 9.14.41 AM.jpeg",
+        "Date": "2026-10-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 62,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.902948000000038,
+          21.423385000000053
+        ]
+      },
+      "properties": {
+        "OBJECTID": 62,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.902948000000002,
+        "Latitude": 21.423385,
+        "Code": "WhatsApp Image 2026-01-10 at 9.14.42 AM (1).jpeg",
+        "Date": "2026-10-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 63,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.902905000000032,
+          21.423445000000072
+        ]
+      },
+      "properties": {
+        "OBJECTID": 63,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.902904999999997,
+        "Latitude": 21.423445000000001,
+        "Code": "WhatsApp Image 2026-01-10 at 9.14.42 AM.jpeg",
+        "Date": "2026-10-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 64,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.902977000000078,
+          21.423402000000067
+        ]
+      },
+      "properties": {
+        "OBJECTID": 64,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.902977,
+        "Latitude": 21.423401999999999,
+        "Code": "WhatsApp Image 2026-01-10 at 9.14.43 AM (1).jpeg",
+        "Date": "2026-10-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 65,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.902974000000029,
+          21.423402000000067
+        ]
+      },
+      "properties": {
+        "OBJECTID": 65,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.902974,
+        "Latitude": 21.423401999999999,
+        "Code": "WhatsApp Image 2026-01-10 at 9.14.43 AM.jpeg",
+        "Date": "2026-10-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 66,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.902828000000056,
+          21.423660000000041
+        ]
+      },
+      "properties": {
+        "OBJECTID": 66,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.902828,
+        "Latitude": 21.423660000000002,
+        "Code": "WhatsApp Image 2026-01-10 at 9.42.22 AM.JPG",
+        "Date": "2026-10-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 67,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903094000000067,
+          21.42227500000007
+        ]
+      },
+      "properties": {
+        "OBJECTID": 67,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.903094000000003,
+        "Latitude": 21.422274999999999,
+        "Code": "WhatsApp Image 2026-01-10 at 9.47.07 AM.jpeg",
+        "Date": "2026-10-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 68,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903237000000047,
+          21.422175000000038
+        ]
+      },
+      "properties": {
+        "OBJECTID": 68,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.903236999999997,
+        "Latitude": 21.422174999999999,
+        "Code": "WhatsApp Image 2026-01-10 at 10.03.38 AM.jpeg",
+        "Date": "2026-10-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 69,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903034000000048,
+          21.42168300000003
+        ]
+      },
+      "properties": {
+        "OBJECTID": 69,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.903033999999998,
+        "Latitude": 21.421683000000002,
+        "Code": "WhatsApp Image 2026-01-10 at 10.57.58 AM.jpeg",
+        "Date": "2026-10-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 70,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.902913000000069,
+          21.423920000000066
+        ]
+      },
+      "properties": {
+        "OBJECTID": 70,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.902912999999998,
+        "Latitude": 21.423919999999999,
+        "Code": "WhatsApp Image 2026-01-10 at 10.59.08 AM.jpeg",
+        "Date": "2026-10-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 71,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903243000000032,
+          21.422024000000079
+        ]
+      },
+      "properties": {
+        "OBJECTID": 71,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.903243000000003,
+        "Latitude": 21.422024,
+        "Code": "WhatsApp Image 2026-01-10 at 11.31.29 AM.jpeg",
+        "Date": "2026-10-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 72,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903011000000049,
+          21.42399400000005
+        ]
+      },
+      "properties": {
+        "OBJECTID": 72,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.903010999999999,
+        "Latitude": 21.423994,
+        "Code": "WhatsApp Image 2026-01-10 at 11.34.22 AM.jpeg",
+        "Date": "2026-10-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 73,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.902803200000051,
+          21.424052000000074
+        ]
+      },
+      "properties": {
+        "OBJECTID": 73,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.902803200000001,
+        "Latitude": 21.424052,
+        "Code": "WhatsApp Image 2026-01-10 at 12.34.35 PM.jpeg",
+        "Date": "2026-10-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 74,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903552000000047,
+          21.425316000000066
+        ]
+      },
+      "properties": {
+        "OBJECTID": 74,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.903551999999998,
+        "Latitude": 21.425315999999999,
+        "Code": "WhatsApp Image 2026-01-11 at 2.37.52 PM.JPG",
+        "Date": "2026-11-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 75,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903574000000049,
+          21.425104000000033
+        ]
+      },
+      "properties": {
+        "OBJECTID": 75,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.903573999999999,
+        "Latitude": 21.425104000000001,
+        "Code": "WhatsApp Image 2026-01-11 at 2.47.40 PM.JPG",
+        "Date": "2026-11-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 76,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.90290200000004,
+          21.420240000000035
+        ]
+      },
+      "properties": {
+        "OBJECTID": 76,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.902901999999997,
+        "Latitude": 21.42024,
+        "Code": "WhatsApp Image 2026-01-11 at 9.18.51 AM.JPG",
+        "Date": "2026-11-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 77,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.902915000000064,
+          21.420578000000035
+        ]
+      },
+      "properties": {
+        "OBJECTID": 77,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.902915,
+        "Latitude": 21.420577999999999,
+        "Code": "WhatsApp Image 2026-01-11 at 9.20.18 AM.JPG",
+        "Date": "2026-11-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 78,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.902671000000055,
+          21.420409000000063
+        ]
+      },
+      "properties": {
+        "OBJECTID": 78,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.902670999999998,
+        "Latitude": 21.420408999999999,
+        "Code": "WhatsApp Image 2026-01-11 at 9.58.25 AM.JPG",
+        "Date": "2026-11-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 79,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903700700000059,
+          21.424190700000054
+        ]
+      },
+      "properties": {
+        "OBJECTID": 79,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.903700700000002,
+        "Latitude": 21.4241907,
+        "Code": "WhatsApp Image 2026-01-11 at 10.57.53 AM.JPG",
+        "Date": "2026-11-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 80,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.904090000000053,
+          21.424057000000062
+        ]
+      },
+      "properties": {
+        "OBJECTID": 80,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.904089999999997,
+        "Latitude": 21.424057000000001,
+        "Code": "WhatsApp Image 2026-01-11 at 11.17.45 AM.JPG",
+        "Date": "2026-11-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 81,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903963000000033,
+          21.417887000000064
+        ]
+      },
+      "properties": {
+        "OBJECTID": 81,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.903962999999997,
+        "Latitude": 21.417887,
+        "Code": "WhatsApp Image 2026-01-12 at 11.18.50 AM.jpeg",
+        "Date": "2026-12-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 82,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903333000000032,
+          21.416623000000072
+        ]
+      },
+      "properties": {
+        "OBJECTID": 82,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.903333000000003,
+        "Latitude": 21.416623000000001,
+        "Code": "WhatsApp Image 2026-01-12 at 11.36.58 AM.jpeg",
+        "Date": "2026-12-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 83,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903736000000038,
+          21.41921300000007
+        ]
+      },
+      "properties": {
+        "OBJECTID": 83,
+        "Discription": "Geological phenomena",
+        "Longitude": 39.903736000000002,
+        "Latitude": 21.419212999999999,
+        "Code": "WhatsApp Image 2026-01-12 at 11.39.22 AM.jpeg",
+        "Date": "2026-12-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 84,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 84,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 85,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.90289400000006,
+          21.421206000000041
+        ]
+      },
+      "properties": {
+        "OBJECTID": 85,
+        "Discription": "اعمال الحماية القائمة",
+        "Longitude": 39.902894000000003,
+        "Latitude": 21.421206000000002,
+        "Code": "WhatsApp Image 2026-01-08 at 2.00.50 PM (2).jpeg",
+        "Date": "2026-08-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 86,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.90290600000003,
+          21.421207000000038
+        ]
+      },
+      "properties": {
+        "OBJECTID": 86,
+        "Discription": "اعمال الحماية القائمة",
+        "Longitude": 39.902906000000002,
+        "Latitude": 21.421206999999999,
+        "Code": "WhatsApp Image 2026-01-08 at 2.00.50 PM.jpeg",
+        "Date": "2026-08-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 87,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.902557000000058,
+          21.421386000000041
+        ]
+      },
+      "properties": {
+        "OBJECTID": 87,
+        "Discription": "اعمال الحماية القائمة",
+        "Longitude": 39.902557000000002,
+        "Latitude": 21.421385999999998,
+        "Code": "WhatsApp Image 2026-01-08 at 2.00.51 PM (1).jpeg",
+        "Date": "2026-08-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 88,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.902827000000059,
+          21.416144000000031
+        ]
+      },
+      "properties": {
+        "OBJECTID": 88,
+        "Discription": "اعمال الحماية القائمة",
+        "Longitude": 39.902827000000002,
+        "Latitude": 21.416143999999999,
+        "Code": "WhatsApp Image 2026-01-10 at 2.21.46 PM (1).jpeg",
+        "Date": "2026-10-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 89,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.902851000000055,
+          21.416150000000073
+        ]
+      },
+      "properties": {
+        "OBJECTID": 89,
+        "Discription": "اعمال الحماية القائمة",
+        "Longitude": 39.902850999999998,
+        "Latitude": 21.416149999999998,
+        "Code": "WhatsApp Image 2026-01-10 at 2.21.46 PM.jpeg",
+        "Date": "2026-10-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 90,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.90354300000007,
+          21.427246000000025
+        ]
+      },
+      "properties": {
+        "OBJECTID": 90,
+        "Discription": "اعمال الحماية القائمة",
+        "Longitude": 39.903542999999999,
+        "Latitude": 21.427246,
+        "Code": "WhatsApp Image 2026-01-10 at 11.41.45 AM (1).jpeg",
+        "Date": "2026-10-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 91,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903606000000025,
+          21.427275000000066
+        ]
+      },
+      "properties": {
+        "OBJECTID": 91,
+        "Discription": "اعمال الحماية القائمة",
+        "Longitude": 39.903606000000003,
+        "Latitude": 21.427275000000002,
+        "Code": "WhatsApp Image 2026-01-10 at 11.41.45 AM.jpeg",
+        "Date": "2026-10-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 92,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903050000000064,
+          21.425916000000029
+        ]
+      },
+      "properties": {
+        "OBJECTID": 92,
+        "Discription": "اعمال الحماية القائمة",
+        "Longitude": 39.90305,
+        "Latitude": 21.425916000000001,
+        "Code": "WhatsApp Image 2026-01-10 at 11.41.46 AM (1).jpeg",
+        "Date": "2026-10-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 93,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903488000000038,
+          21.427245000000028
+        ]
+      },
+      "properties": {
+        "OBJECTID": 93,
+        "Discription": "اعمال الحماية القائمة",
+        "Longitude": 39.903488000000003,
+        "Latitude": 21.427244999999999,
+        "Code": "WhatsApp Image 2026-01-10 at 11.41.46 AM.jpeg",
+        "Date": "2026-10-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 94,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.902855000000045,
+          21.425502000000051
+        ]
+      },
+      "properties": {
+        "OBJECTID": 94,
+        "Discription": "اعمال الحماية القائمة",
+        "Longitude": 39.902855000000002,
+        "Latitude": 21.425502000000002,
+        "Code": "WhatsApp Image 2026-01-10 at 11.41.48 AM (1).jpeg",
+        "Date": "2026-10-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 95,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.902813000000037,
+          21.425450000000069
+        ]
+      },
+      "properties": {
+        "OBJECTID": 95,
+        "Discription": "اعمال الحماية القائمة",
+        "Longitude": 39.902813000000002,
+        "Latitude": 21.425450000000001,
+        "Code": "WhatsApp Image 2026-01-10 at 11.41.48 AM (2).jpeg",
+        "Date": "2026-10-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 96,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.902856000000043,
+          21.425501000000054
+        ]
+      },
+      "properties": {
+        "OBJECTID": 96,
+        "Discription": "اعمال الحماية القائمة",
+        "Longitude": 39.902856,
+        "Latitude": 21.425501000000001,
+        "Code": "WhatsApp Image 2026-01-10 at 11.41.48 AM.jpeg",
+        "Date": "2026-10-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 97,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.902753000000075,
+          21.425432000000058
+        ]
+      },
+      "properties": {
+        "OBJECTID": 97,
+        "Discription": "اعمال الحماية القائمة",
+        "Longitude": 39.902752999999997,
+        "Latitude": 21.425432000000001,
+        "Code": "WhatsApp Image 2026-01-10 at 11.41.49 AM (1).jpeg",
+        "Date": "2026-10-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 98,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.90266500000007,
+          21.425399000000027
+        ]
+      },
+      "properties": {
+        "OBJECTID": 98,
+        "Discription": "اعمال الحماية القائمة",
+        "Longitude": 39.902664999999999,
+        "Latitude": 21.425398999999999,
+        "Code": "WhatsApp Image 2026-01-10 at 11.41.49 AM (2).jpeg",
+        "Date": "2026-10-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 99,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903002000000072,
+          21.422112000000027
+        ]
+      },
+      "properties": {
+        "OBJECTID": 99,
+        "Discription": "اعمال الحماية القائمة",
+        "Longitude": 39.903002000000001,
+        "Latitude": 21.422111999999998,
+        "Code": "WhatsApp Image 2026-01-10 at 12.58.50 PM.jpeg",
+        "Date": "2026-10-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 100,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.903720000000078,
+          21.421202000000051
+        ]
+      },
+      "properties": {
+        "OBJECTID": 100,
+        "Discription": "اعمال الحماية القائمة",
+        "Longitude": 39.90372,
+        "Latitude": 21.421202000000001,
+        "Code": "WhatsApp Image 2026-01-11 at 9.08.02 AM.JPG",
+        "Date": "2026-11-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 101,
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          39.901947000000064,
+          21.419075000000078
+        ]
+      },
+      "properties": {
+        "OBJECTID": 101,
+        "Discription": "اعمال الحماية القائمة",
+        "Longitude": 39.901947,
+        "Latitude": 21.419074999999999,
+        "Code": "WhatsApp Image 2026-01-12 at 9.18.12 AM.jpeg",
+        "Date": "2026-12-01"
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 102,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 102,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 103,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 103,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 104,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 104,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 105,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 105,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 106,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 106,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 107,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 107,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 108,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 108,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 109,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 109,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 110,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 110,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 111,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 111,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 112,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 112,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 113,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 113,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 114,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 114,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 115,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 115,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 116,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 116,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 117,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 117,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 118,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 118,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 119,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 119,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 120,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 120,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 121,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 121,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 122,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 122,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 123,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 123,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 124,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 124,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 125,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 125,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 126,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 126,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 127,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 127,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 128,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 128,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 129,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 129,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 130,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 130,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 131,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 131,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 132,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 132,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 133,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 133,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 134,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 134,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 135,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 135,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    },
+    {
+      "type": "Feature",
+      "id": 136,
+      "geometry": null,
+      "properties": {
+        "OBJECTID": 136,
+        "Shape": null,
+        "Discription": null,
+        "Longitude": null,
+        "Latitude": null,
+        "Code": null,
+        "Date": null
+      }
+    }
+  ]
+}
