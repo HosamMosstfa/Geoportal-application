@@ -1,10 +1,11 @@
 .map-section-wrapper {
   width: 100%;
-  background-color: #1a1a1a;
+  background-color: var(--bg-secondary);
   padding: 0;
   position: relative;
   margin: 2rem 0;
   overflow: hidden;
+  transition: background-color 0.3s ease;
 }
 
 .map-content-grid {
@@ -36,18 +37,24 @@
 
 .stat-card {
   background: rgba(255, 255, 255, 0.05);
-  border: 1px solid #b69767;
-  border-right: 4px solid #d4af37;
+  border: 1px solid var(--border-color);
+  border-right: 4px solid var(--main-gold);
   border-radius: 4px;
   padding: 12px 15px;
   width: 100%;
   max-width: 280px;
-  color: #fff;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  color: var(--text-primary);
+  box-shadow: 0 4px 10px var(--shadow-color);
   margin-bottom: 5px;
-
   opacity: 0;
   animation: fadeIn 0.4s forwards;
+}
+
+[data-theme="light"] .stat-card {
+  background: #ffffff;
+  border: 1px solid var(--border-color);
+  border-right: 4px solid var(--map-fill);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 @keyframes fadeIn {
@@ -58,15 +65,24 @@
 }
 
 .stat-card h4 {
-  color: #d4af37;
+  color: var(--main-gold);
   font-size: 0.85rem;
   margin: 0 0 5px 0;
 }
 
+[data-theme="light"] .stat-card h4 {
+  color: var(--map-fill);
+}
+
 .stat-card p {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 700;
   margin: 0;
+  color: var(--text-primary);
+}
+
+[data-theme="light"] .stat-card p {
+  color: #000000;
 }
 
 .map-container-center {
@@ -82,25 +98,29 @@
   max-width: 1000px;
   height: auto;
   max-height: 800px;
-  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0 0 5px var(--shadow-color));
   transition: transform 0.5s ease;
 }
 
 .map-region {
-  fill: #b69767;
-  fill-opacity: 0.05; /* تم تقليل الشفافية لتبدو كإطار قبل التفعيل */
-  stroke: #b69767;
+  fill: var(--map-fill);
+  fill-opacity: 0.05;
+  stroke: var(--map-stroke);
   stroke-width: 1px;
   transition: all 0.3s ease-in-out;
   cursor: pointer;
 }
 
 .map-region.active-path {
-  fill: #d4af37 !important;
-  fill-opacity: 1 !important; /* ملء كامل عند التفعيل */
+  fill: var(--map-fill) !important;
+  fill-opacity: 1 !important;
   stroke: none;
   filter: drop-shadow(0 0 15px rgba(212, 175, 55, 0.8));
   transform: scale(1.01);
+}
+
+[data-theme="light"] .map-region.active-path {
+  filter: drop-shadow(0 0 15px rgba(35, 155, 135, 0.6));
 }
 
 .interactive-map-svg:hover .map-region:not(.active-path) {
@@ -110,7 +130,7 @@
 
 .map-section-title {
   background-color: transparent;
-  color: #ffffff;
+  color: var(--text-primary);
   font-size: 1.8rem;
   font-weight: 600;
   text-align: right;
@@ -121,12 +141,32 @@
   margin-right: auto;
 }
 
+[data-theme="light"] .map-section-title {
+  color: #000000;
+}
+
 .map-border-top,
 .map-border-bottom {
   width: 100%;
   height: 3px;
-  background: linear-gradient(90deg, #b69767 0%, #d4af37 50%, #b69767 100%);
+  background: linear-gradient(
+    90deg,
+    var(--main-gold) 0%,
+    var(--main-gold-hover) 50%,
+    var(--main-gold) 100%
+  );
   box-shadow: 0 0 10px rgba(182, 151, 103, 0.5);
+}
+
+[data-theme="light"] .map-border-top,
+[data-theme="light"] .map-border-bottom {
+  background: linear-gradient(
+    90deg,
+    var(--map-fill) 0%,
+    #2bb59c 50%,
+    var(--map-fill) 100%
+  );
+  box-shadow: 0 0 10px rgba(35, 155, 135, 0.3);
 }
 
 @media (max-width: 992px) {

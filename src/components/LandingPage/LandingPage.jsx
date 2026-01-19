@@ -8,6 +8,7 @@ import MapSection from "./Map-section/MapSection";
 import FieldGallery from "./FieldGallery/FieldGallery";
 import ContactFooter from "./ContactFooter/ContactFooter";
 import SectionDivider from "./SectionDivider/SectionDivider";
+
 const LandingPage = () => {
   return (
     <div className="golden-contour-bg" dir="rtl">

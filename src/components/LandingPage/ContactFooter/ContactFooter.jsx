@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./ContactFooter.css";
 import footerLogo from "../../../assets/Footer/Logo.png";
 import icon1 from "../../../assets/Footer/Icon (1).png";
@@ -75,13 +76,16 @@ const ContactFooter = () => {
           <div className="col-links">
             <ul className="footer-nav">
               <li>
-                <a href="#home">الصفحة الرئيسية</a>
+                <Link to="/">الصفحة الرئيسية</Link>
               </li>
               <li>
-                <a href="#dashboard">لوحة التحكم</a>
+                <Link to="/map">لوحة التحكم</Link>
               </li>
               <li>
-                <a href="#contact">تواصل معنا</a>
+                <Link to="/#">الخريطة</Link>
+              </li>
+              <li>
+                <Link to="/">تواصل معنا</Link>
               </li>
             </ul>
           </div>

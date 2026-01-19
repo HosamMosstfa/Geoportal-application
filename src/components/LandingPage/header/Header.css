@@ -6,6 +6,11 @@
   width: 100%;
 }
 
+[data-theme="light"] .header-wrapper {
+  background-image: url("/src/assets/HeaderAndLogo/Header.png");
+  background-color: #ffffff;
+}
+
 .logos-section {
   display: flex;
   padding: 30px 5%;
@@ -14,6 +19,7 @@
 
 .header-logo {
   height: 80px;
+  cursor: pointer;
 }
 
 .top-header {
@@ -57,9 +63,7 @@
   font-weight: 600;
   font-size: 1rem;
   letter-spacing: 0.5px;
-  transition:
-    opacity 0.3s,
-    transform 0.2s;
+  transition: opacity 0.3s, transform 0.2s;
   padding: 8px 12px;
 }
 
@@ -68,19 +72,38 @@
   transform: translateY(-2px);
 }
 
+[data-theme="light"] .nav-links a {
+  color: #fff;
+}
+
+.theme-toggle-btn {
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-right: 15px;
+  transition: background 0.3s;
+}
+
+.theme-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
 @media (max-width: 1024px) {
   .logos-section {
     padding: 25px 4%;
   }
-
   .header-logo {
     height: 70px;
   }
-
   .nav-links {
     gap: 30px;
   }
-
   .nav-links a {
     font-size: 0.95rem;
   }
@@ -90,11 +113,9 @@
   .logos-section {
     padding: 20px 4%;
   }
-
   .header-logo {
     height: 60px;
   }
-
   .top-header {
     height: auto;
     min-height: 60px;
@@ -102,7 +123,6 @@
     align-items: flex-start;
     padding: 0;
   }
-
   .menu-toggle {
     display: block;
     position: absolute;
@@ -111,7 +131,6 @@
     transform: translateY(-50%);
     z-index: 100;
   }
-
   .nav-links {
     display: none;
     flex-direction: column;
@@ -120,22 +139,17 @@
     background-color: var(--primary-teal);
     padding: 0;
   }
-
   .nav-links.active {
     display: flex;
   }
-
   .nav-links a {
     width: 100%;
     padding: 15px 20px;
     text-align: right;
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-    font-size: 1rem;
   }
-
-  .nav-links a:hover {
-    background-color: rgba(255, 255, 255, 0.1);
-    transform: translateY(0);
+  .theme-toggle-btn {
+    margin: 15px 20px 15px auto;
   }
 }
 
@@ -143,18 +157,14 @@
   .logos-section {
     padding: 15px 3%;
   }
-
   .header-logo {
     height: 50px;
   }
-
   .menu-toggle {
     font-size: 1.5rem;
     left: 15px;
   }
-
   .nav-links a {
-    font-size: 0.95rem;
     padding: 12px 15px;
   }
 }

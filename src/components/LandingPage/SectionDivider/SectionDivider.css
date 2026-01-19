@@ -4,14 +4,39 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  margin-bottom: 2rem;
+  margin: 60px 0;
   z-index: 5;
 }
 
 .divider-arrow {
   width: 180px;
   height: 100px;
-  margin-bottom: 100px;
+  margin-bottom: 0;
   filter: drop-shadow(0 0 10px rgba(0, 150, 136, 0.6));
   animation: floatArrow 2s infinite ease-in-out;
+}
+
+[data-theme="light"] .divider-arrow {
+  filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.2));
+  opacity: 0.8;
+}
+
+@keyframes floatArrow {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@media (max-width: 768px) {
+  .section-divider-container {
+    margin: 40px 0;
+  }
+  .divider-arrow {
+    width: 140px;
+    height: 80px;
+  }
 }

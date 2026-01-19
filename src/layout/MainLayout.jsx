@@ -1,9 +1,9 @@
 import { useState, useRef } from "react";
-
 import Navbar from "../components/Navbar";
 import MapView from "../components/MapView";
 import LeftSidebar from "../components/LeftSidebar";
 import RightSidebar from "../components/RightSidebar";
+import { useTheme } from "../context/ThemeContext";
 
 const NAVBAR_HEIGHT = 60;
 
@@ -11,11 +11,8 @@ function MainLayout() {
   const [showLeft] = useState(true);
   const [showRight] = useState(true);
   const mapRef = useRef(null);
-  const [theme, setTheme] = useState("dark");
 
-  function toggleTheme() {
-    setTheme((t) => (t === "light" ? "dark" : "light"));
-  }
+  const { theme, toggleTheme } = useTheme();
 
   return (
     <div style={{ height: "100vh", display: "flex", flexDirection: "column" }}>
