@@ -8,7 +8,7 @@ const MapSection = () => {
     right: [
       { label: "إجمالي المساحة", value: "118.84 كم²" },
       { label: "إجمالي النقاط", value: "1012" },
-      { label: "إجمالي الأزواج", value: "506" },
+      { label: "عدد المحطات", value: "506" },
     ],
     left: [
       { label: "عدد المناطق", value: "4" },
@@ -22,7 +22,7 @@ const MapSection = () => {
       right: [
         { label: "اسم المنطقة", value: "المنطقة الشمالية الشرقية" },
         { label: "المساحة", value: "13.73 كم²" },
-        { label: "عدد المحطات", value: "146" },
+        { label: "عدد المحطات", value: "73" },
       ],
       left: [
         { label: "أسماء المحطات من وإلي", value: "From s1.0 To s_73.0" },
@@ -34,7 +34,7 @@ const MapSection = () => {
       right: [
         { label: "اسم المنطقة", value: "المنطقة الشمالية الغربية" },
         { label: "المساحة", value: "41.85 كم²" },
-        { label: "عدد المحطات", value: "564" },
+        { label: "عدد المحطات", value: "282" },
       ],
       left: [
         { label: "أسماء المحطات من وإلي", value: "From s74.0 To s_355.0" },
@@ -46,7 +46,7 @@ const MapSection = () => {
       right: [
         { label: "اسم المنطقة", value: "المنطقة الجنوبية الشرقية" },
         { label: "المساحة", value: "44.21 كم²" },
-        { label: "عدد المحطات", value: "226" },
+        { label: "عدد المحطات", value: "113" },
       ],
       left: [
         { label: "أسماء المحطات من وإلي", value: "From s356.0 To s_468.0" },
@@ -58,7 +58,7 @@ const MapSection = () => {
       right: [
         { label: "اسم المنطقة", value: "المنطقة الجنوبية الغربية" },
         { label: "المساحة", value: "19.05 كم²" },
-        { label: "عدد المحطات", value: "76" },
+        { label: "عدد المحطات", value: "38" },
       ],
       left: [
         { label: "أسماء المحطات من وإلي", value: "From s469.0 To s_506.0" },

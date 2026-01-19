@@ -12,7 +12,9 @@ const HeroSection = () => {
           <h2 className="vision-title">
             رؤية <br /> المشروع
           </h2>
-          <span className="arrow-icon" style={{transform: "revert"}}>➤</span>
+          <span className="arrow-icon" style={{ transform: "revert" }}>
+            ➤
+          </span>
         </div>
       </div>
     </section>

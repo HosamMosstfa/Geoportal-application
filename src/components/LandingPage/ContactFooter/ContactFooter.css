@@ -111,7 +111,9 @@
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
+  transition:
+    background 0.3s,
+    transform 0.2s;
   box-shadow: 0 4px 15px rgba(35, 155, 135, 0.2);
 }
 
@@ -166,7 +168,7 @@
   justify-content: center;
   border-right: 2.5px solid rgba(0, 0, 0, 1.15);
   border-left: 2.5px solid rgba(0, 0, 0, 1.15);
-  padding:  40px;
+  padding: 40px;
 }
 
 .footer-nav {
@@ -208,7 +210,9 @@
   color: #1a1a1a;
   font-size: 0.95rem;
   text-decoration: none;
-  transition: transform 0.3s, color 0.3s;
+  transition:
+    transform 0.3s,
+    color 0.3s;
 }
 
 .social-item:hover {

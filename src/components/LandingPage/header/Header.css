@@ -11,7 +11,6 @@
   padding: 30px 5%;
   align-items: center;
 }
- 
 
 .header-logo {
   height: 80px;
@@ -58,7 +57,9 @@
   font-weight: 600;
   font-size: 1rem;
   letter-spacing: 0.5px;
-  transition: opacity 0.3s, transform 0.2s;
+  transition:
+    opacity 0.3s,
+    transform 0.2s;
   padding: 8px 12px;
 }
 

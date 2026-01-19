@@ -67,8 +67,9 @@ const selectStyle = {
         let sampleCounter = 1;
         geo.features.forEach((f) => {
           const name = f.properties && String(f.properties.Name || "");
+          const type = f.properties && String(f.properties.Type || "");
           let sym = "other";
-          if (name === "Samples") {
+          if (type === "Sample") {
             sym = "Samples";
             f.properties = { ...f.properties, _sym: sym, _sampleIndex: sampleCounter };
             sampleCounter += 1;
@@ -169,7 +170,7 @@ const selectStyle = {
       </div>
 
       {/* ---------- Samples Pie Chart ---------- */}
-      <div style={{ ...filterCard, height: '300px' }}>
+        <div style={{ ...filterCard, height: '300px' }}>
         <PieChart data={samplesData} title="العينات وترقيمها وإحداثياتها" theme={theme} />
       </div>
       <div style={{ marginTop: 12, padding: 10, background: theme === 'light' ? '#fafafa' : 'linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01))', borderRadius: 8, border: theme === 'light' ? '1px solid #eee' : '1px solid rgba(255,255,255,0.06)', fontSize: 15, color: theme === 'light' ? '#222' : '#eaeaea' }}>

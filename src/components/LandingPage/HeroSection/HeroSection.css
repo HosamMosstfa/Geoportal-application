@@ -38,7 +38,9 @@
   position: relative;
   box-shadow: -15px 0 40px rgba(0, 0, 0, 0.5);
   cursor: pointer;
-  transition: transform 0.3s ease, width 0.3s ease;
+  transition:
+    transform 0.3s ease,
+    width 0.3s ease;
 }
 
 .vision-box:hover {
@@ -113,9 +115,8 @@
     text-align: right;
     color: #1f1f1f;
     margin-left: 30px;
-  }z
-
-  .arrow-icon {
+  }
+  z .arrow-icon {
     margin-right: 0;
     font-size: 3rem;
     color: #1f1f1f;

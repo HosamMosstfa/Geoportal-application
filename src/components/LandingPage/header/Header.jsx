@@ -33,6 +33,9 @@ const Header = () => {
           <a href="/map" onClick={() => setMenuOpen(false)}>
             لوحة التحكم
           </a>
+          <a href="/#" onClick={() => setMenuOpen(false)}>
+          الخريطة 
+          </a>
           <a href="/contact" onClick={() => setMenuOpen(false)}>
             تواصل معنا
           </a>

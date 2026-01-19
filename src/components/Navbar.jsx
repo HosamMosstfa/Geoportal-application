@@ -50,7 +50,7 @@ const marqueeStyle = `
   className="mx-auto fw-bold"
   style={{
     pointerEvents: "none",
-    fontSize: "20px",
+    fontSize: "16px",
     letterSpacing: "0.3px",
     textAlign: "center",
     maxWidth: 960,
@@ -69,23 +69,6 @@ const marqueeStyle = `
     مشروع تقييم مخاطر المنحدرات والانهيارات الصخرية بالمشاعر المقدسة وحماها وتدابير الحماية الهندسية
   </span>
 
-  {/* اللمعة */}
-  <span
-    style={{
-      position: "absolute",
-      inset: 0,
-      background: light
-        ? "linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.6) 50%, transparent 70%)"
-        : "linear-gradient(120deg, transparent 30%, rgba(255,255,255,0.9) 50%, transparent 70%)",
-      animation: "shine 3s infinite",
-      WebkitBackgroundClip: "text",
-      WebkitTextFillColor: "transparent",
-      backgroundClip: "text",
-      pointerEvents: "none",
-    }}
-  >
-    مشروع تقييم مخاطر المنحدرات والانهيارات الصخرية بالمشاعر المقدسة وحماها وتدابير الحماية الهندسية
-  </span>
 </div>
 
 
