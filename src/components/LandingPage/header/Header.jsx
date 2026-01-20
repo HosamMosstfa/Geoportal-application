@@ -1,5 +1,5 @@
-
-
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 import headerBg from "../../../assets/HeaderAndLogo/Header.png";
 import logo from "../../../assets/HeaderAndLogo/Logo Dark mode.png";
 
@@ -21,10 +21,10 @@ const Header = () => {
           src={logo}
           alt="Logo"
           className="header-logo"
-          onClick={() => navigate("/")}
+     onClick={() => navigate("/map")}
+
         />
       </div>
-
     </div>
   );
 };
